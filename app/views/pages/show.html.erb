@@ -1,0 +1,34 @@
+<div class="content">
+<%if @picture%>
+<div style="float:right; margin-left:20px; margin-top:20px; margin-bottom: 10px;  text-align:center">
+
+<%#=image_tag "aboutpic.png", :style=>'float: right; margin-left:20px; margin-bottom: 20px' %>
+<%=image_tag @picture_path %><br />
+<%=@page.image_text%>
+</div>
+<% end %>
+
+<!--<div class="infobox" style="float:right; margin-left:20px; margin-top:20px; margin-bottom: 10px;  text-align:left">
+<p class="infoheader" align="center">Dette er en overskrift.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mattis pharetra quam, id pharetra leo pharetra consequat. Donec eros mi, ullamcorper id luctus in, commodo a purus. Morbi semper orci eget nisl commodo nec egestas nisi consequat. </p>
+<p>Nam ante eros, aliquam vel auctor vel, commodo sed neque. Aenean magna velit, ultrices ut bibendum eu, pulvinar eget arcu. Pellentesque eget nulla eu lorem ornare suscipit sed sit amet justo. Phasellus dictum nisi et quam vulputate quis varius risus euismod. 
+Duis gravida justo eu tellus commodo eu ultrices ante blandit.</p>
+</div>-->
+
+<span class="otherart">
+<h1><%=@page.title_en%></h1>
+<h2><%=@page.ingress_en%></h2>
+<%=raw format(@page.body_en)%>
+<% unless @page.byline.blank? %>
+  <p>
+  <%=raw @page.byline%>
+  <br>
+  <%=  @page.created_at.strftime("%F")%>
+  </p>
+<%end%>
+
+</span>
+</div>
+
+
+

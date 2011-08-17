@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  quote: MyText
+  name: MyString
+  position: MyString
+  top: false
+  side: false
+  weight: false
+
+two:
+  quote: MyText
+  name: MyString
+  position: MyString
+  top: false
+  side: false
+  weight: false

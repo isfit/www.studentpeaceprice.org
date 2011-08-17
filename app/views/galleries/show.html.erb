@@ -1,0 +1,16 @@
+<p>
+  <b><%= @gallery.title %></b>
+  <br /><br />
+  <% @gallery_albums.each do |album| %>	
+	<hr/><br/>
+	<% @cover = GalleryPhoto.where(:id => album.album_cover).first %>
+	<b><%= link_to album.title, gallery_album_path(@gallery, album), :tab => params[:tab] %></b><br/>
+	<% if (@cover != nil)%>
+	 <%= link_to( image_tag(@cover.photo.url(:small)), gallery_album_path(@gallery, album), :tab => params[:tab] ) %>
+	<% end %><br/>
+	<%= album.description %>
+	<br /><br/>
+  <% end %><hr />
+</p><br />
+
+<%= link_to 'Back', galleries_path(params[:tab]) %>

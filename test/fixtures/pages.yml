@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title_en: MyString
+  ingress_en: MyText
+  body_en: MyText
+
+two:
+  title_en: MyString
+  ingress_en: MyText
+  body_en: MyText

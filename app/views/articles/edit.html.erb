@@ -1,0 +1,55 @@
+<h1>Editing article</h1>
+
+<%= form_for(@article) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title_en %><br />
+    <%= f.text_field :title_en %>
+  </p>
+  <p>
+    <%= f.label :title_no %><br />
+    <%= f.text_field :title_no %>
+  </p>
+  <p>
+    <%= f.label :ingress_en %><br />
+    <%= f.text_area :ingress_en %>
+  </p>
+  <p>
+    <%= f.label :ingress_no %><br />
+    <%= f.text_area :ingress_no %>
+  </p>
+  <p>
+    <%= f.label :body_en %><br />
+    <%= f.text_area :body_en %>
+  </p>
+  <p>
+    <%= f.label :body_no %><br />
+    <%= f.text_area :body_no %>
+  </p>
+  <p>
+    <%= f.label :press_release %><br />
+    <%= f.check_box :press_release %>
+  </p>
+  <p>
+    <%= f.label :deleted %><br />
+    <%= f.check_box :deleted %>
+  </p>
+  <p>
+    <%= f.label :visible %><br />
+    <%= f.check_box :visible %>
+  </p>
+  <p>
+    <%= f.label :main_article %> <br />
+    <%= f.check_box :main_article %> <br />
+  </p>
+  <p>
+    <%=link_to 'Edit Main Picture', {:controller => 'pictures', :action=> 'new', :tab => params[:tab], :article_id => @article.id}, {:popup => true}%>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @article %> |
+<%= link_to 'Back', articles_path %>

@@ -1,0 +1,30 @@
+<h1>Listing gallery_albums</h1>	
+<table>
+  <tr>
+    <th>Creator</th>
+    <th>Album cover</th>
+    <th>Title</th>
+    <th>Location</th>
+    <th>Description</th>
+    <th>Gallery</th>
+    <th>Feedback</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @gallery_albums.each do |gallery_album| %>
+  <tr>
+    <td><%= gallery_album.creator %></td>
+    <td><%= gallery_album.album_cover %></td>
+    <td><%= gallery_album.title %></td>
+    <td><%= gallery_album.location %></td>
+    <td><%= gallery_album.description %></td>
+    <td><%= gallery_album.gallery %></td>
+    <td><%= gallery_album.feedback %></td>
+    <td><%= link_to 'Show', gallery_album %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
