@@ -40,7 +40,7 @@ GEM
       mime-types
       treetop (>= 1.4.5)
     mime-types (1.16)
-    mysql (2.8.1)
+    mysql2 (0.2.13)
     paperclip (2.3.3)
       activerecord
       activesupport
@@ -75,7 +75,7 @@ PLATFORMS
 
 DEPENDENCIES
   bluecloth
-  mysql (= 2.8.1)
+  mysql2 (< 0.3)
   paperclip (= 2.3.3)
   rails (= 3.0.0)
   sqlite3-ruby
