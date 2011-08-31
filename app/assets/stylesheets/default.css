@@ -11,14 +11,14 @@ html
 }
 body
 {
-  background: url(../images/layout/background.png) center 140px repeat-y #221e1f;
+  background: url(../assets/layout/background.png) center 140px repeat-y #221e1f;
 	min-height: 100%;
 	height: 100%;
   text-align: center;
 }
 div#container
 {
-  background: url(../images/layout/background.png) 0px 140px repeat-y;
+  background: url(../assets/layout/background.png) 0px 140px repeat-y;
   position: relative;
   margin: 0 auto;
 	height: 100%;
@@ -27,7 +27,7 @@ div#container
 }
 div#logo
 {
-  background: url(../images/layout/logo.png);
+  background: url(../assets/layout/logo.png);
   height: 157px;
   position: absolute;
   top: 10px;
@@ -36,7 +36,7 @@ div#logo
 }
 a#news, a#news-active
 {
-  background: url(../images/layout/news.png);
+  background: url(../assets/layout/news.png);
   display: block;
   height: 24px;
   position: absolute;
@@ -46,11 +46,11 @@ a#news, a#news-active
 }
 a#news:hover, a#news-active
 {
-  background: url(../images/layout/news-active.png);
+  background: url(../assets/layout/news-active.png);
 }
 a#about, a#about-active
 {
-  background: url(../images/layout/about.png);
+  background: url(../assets/layout/about.png);
   display: block;
   height: 40px;
   position: absolute;
@@ -60,11 +60,11 @@ a#about, a#about-active
 }
 a#about:hover, a#about-active
 {
-  background: url(../images/layout/about-active.png);
+  background: url(../assets/layout/about-active.png);
 }
 a#laureates, a#laureates-active
 {
-  background: url(../images/layout/laureates.png);
+  background: url(../assets/layout/laureates.png);
   display: block;
   height: 90px;
   position: absolute;
@@ -74,11 +74,11 @@ a#laureates, a#laureates-active
 }
 a#laureates:hover, a#laureates-active
 {
-  background: url(../images/layout/laureates-active.png);
+  background: url(../assets/layout/laureates-active.png);
 }
 a#committees, a#committees-active
 {
-  background: url(../images/layout/committees.png);
+  background: url(../assets/layout/committees.png);
   display: block;
   height: 85px;
   position: absolute;
@@ -88,11 +88,11 @@ a#committees, a#committees-active
 }
 a#committees:hover, a#committees-active
 {
-  background: url(../images/layout/committees-active.png);
+  background: url(../assets/layout/committees-active.png);
 }
 a#press, a#press-active
 {
-  background: url(../images/layout/press.png);
+  background: url(../assets/layout/press.png);
   display: block;
   height: 56px;
   position: absolute;
@@ -102,11 +102,11 @@ a#press, a#press-active
 }
 a#press:hover, a#press-active
 {
-  background: url(../images/layout/press-active.png);
+  background: url(../assets/layout/press-active.png);
 }
 a#contact, a#contact-active
 {
-  background: url(../images/layout/contact.png);
+  background: url(../assets/layout/contact.png);
   display: block;
   height: 28px;
   position: absolute;
@@ -116,7 +116,7 @@ a#contact, a#contact-active
 }
 a#contact:hover, a#contact-active
 {
-  background: url(../images/layout/contact-active.png);
+  background: url(../assets/layout/contact-active.png);
 }
 div#header
 {
@@ -128,23 +128,23 @@ div#header
 }
 div.header-news
 {
-	background: url(../images/layout/headers/news.jpg);
+	background: url(../assets/layout/headers/news.jpg);
 }
 div.header-about
 {
-	background: url(../images/layout/headers/about.jpg);
+	background: url(../assets/layout/headers/about.jpg);
 }
 div.header-laureates
 {
-	background: url(../images/layout/headers/laureates.jpg);
+	background: url(../assets/layout/headers/laureates.jpg);
 }
 div.header-committees
 {
-	background: url(../images/layout/headers/committees.jpg);
+	background: url(../assets/layout/headers/committees.jpg);
 }
 div.header-press, div.header-contact
 {
-	background: url(../images/layout/headers/press_contact.jpg);
+	background: url(../assets/layout/headers/press_contact.jpg);
 }
 div#menu
 {

@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+  set_primary_key :id
   belongs_to :event_type
   has_many :event_dates
   belongs_to :event_place
