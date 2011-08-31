@@ -1,8 +1,4 @@
-require 'bluecloth'
-
 module ArticlesHelper
-
-
   def format(str)
     set_correct_tags(str)
     reg = Regexp.new(/\[([\w ,:"]+)\]\(([A-Za-z0-9_:.=&+-?\/]+)\)/)
@@ -24,8 +20,6 @@ module ArticlesHelper
       t_end = text.index('pic##')
       reg = Regexp.new(/##pic (\d+) (\d+) pic##/)
       match = reg.match(text[t_start..t_end+4])
-      #img_id = text[t_start+6].chr
-      #img_type = text[t_start+8].chr
       img_id = match[1]
       img_type = match[2]
       url = article_image(img_id.to_i, img_type.to_i, false)
@@ -37,8 +31,6 @@ module ArticlesHelper
       t_end = text.index('pic#l#')
       reg = Regexp.new(/#l#pic (\d+) (\d+) pic#l#/)
       match = reg.match(text[t_start..t_end+5])
-      #img_id = text[t_start+6].chr
-      #img_type = text[t_start+8].chr
       img_id = match[1]
       img_type = match[2]
       url = article_image(img_id.to_i, img_type.to_i, true)
