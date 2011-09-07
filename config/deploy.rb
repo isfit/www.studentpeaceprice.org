@@ -7,7 +7,7 @@ set :rvm_type, :user
 require 'bundler/capistrano'
 
 set :application, "www.studentpeaceprize.org"
-set :repository,  "git@github.com:isfit/www.studentpeaceprize.org"
+set :repository,  "git@github.com:isfit/www.studentpeaceprice.org"
 
 set :scm, :git
 
