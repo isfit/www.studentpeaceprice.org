@@ -30,7 +30,7 @@
        @grid4_counter %= 3%>
         <a href=<%="#{article_path(article)}?tab=#{params[:tab]}"%>>
           <%if article.youtube_link.blank?%>         
-                    <%#=image_tag("spp_article_images/#{article.id}_2.jpg",:class => "artpic")%>
+                    <%=clever_image_tag("spp_article_images/#{article.id}_2",:class => "artpic")%>
           <%else%>
             <div style="float:left; margin-bottom: 10px;  text-align:center">
               <object width="220" height="131"><param name="movie" value="http://www.youtube.com/v/<%=article.youtube_link%>?fs=1&amp;hl=en_US">

@@ -9,7 +9,7 @@ module ApplicationHelper
 
 
   def clever_image_tag(source,type, options = {})
-  path = "#{Rails.root}" + "/public/images/"+source+".jpg"
+  path = "#{Rails.root}" + "/public/assets/"+source+".jpg"
    if File.exists?(path)
     source += ".jpg"
     image_tag(source, options)
