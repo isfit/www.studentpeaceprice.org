@@ -14,7 +14,7 @@ module ApplicationHelper
     source += ".jpg"
     image_tag(source, options)
    else
-    image_tag("bilde#{type}.png",options)
+    #image_tag("bilde#{type}.png",options)
    end
   end
 end

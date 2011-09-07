@@ -21,3 +21,4 @@ public/images/spp_article_images/*
 *.swp
 .svn
 .svn/*
+public/assets

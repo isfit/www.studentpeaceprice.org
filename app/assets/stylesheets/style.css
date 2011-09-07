@@ -209,7 +209,6 @@ body {
   margin:0 10px 10px 0;
 }
 
-/*HOME mindre ARTIKLER*/
 .art {
   height:325px; 
   margin-top:10px;
@@ -237,7 +236,6 @@ body {
   margin:0 10px 0px 0;
 }
 
-/*ANDRE tekster*/
 .otherart { 
   height:auto; 
   margin-top:10px;
@@ -258,14 +256,12 @@ body {
   font-size:18px; 
   font-weight:bold; 
   margin:10px 10px 5px 0;
-  /*	clear:both;*/
 }
 .otherart h2 {
   color:#d56b1d; 
   font-size:14px; 
   font-weight:bold; 
   margin:10px 10px 15px 0;
-  /*	clear:both;*/
 }
 .otherart p {
   color:#7b776f; 
@@ -283,14 +279,13 @@ body {
 .infoheader {
   font-weight: bold;
   font-size: 14px;
-  color #d56b1d
+  color: #d56b1d;
 }
-/*ARTIKLER for Andre sider*/
-
 
 #footer { 
   margin-top:50px;
 }
+
 #footernav h1 {
   width: 450px;
   color:#7b776f; 
@@ -298,7 +293,6 @@ body {
   margin:10px 0 0 0; 
   padding:0;
 }
-
 
 #footerpart h1, #footerinfo h1 {
   color:#7b776f; 
