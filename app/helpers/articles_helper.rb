@@ -52,9 +52,9 @@ module ArticlesHelper
     #Change on prod!
 
     if (link)
-      url = "<a href=/images/#{picture.original_picture.url}><div class=#{style}><img src =/images/#{pic_url}  /><br /><i>#{picture.credits}</i><br /><i>#{picture.image_text_en}</i></div></a>"
+      url = "<a href=/assets/#{picture.original_picture.url}><div class=#{style}><img src =/assets/#{pic_url}  /><br /><i>#{picture.credits}</i><br /><i>#{picture.image_text_en}</i></div></a>"
     else
-      url = "<div class=#{style}><img src =/images/#{pic_url}  /><br /><i>#{picture.credits}</i><br /><i>#{picture.image_text_en}</i></div>"
+      url = "<div class=#{style}><img src =/assets/#{pic_url}  /><br /><i>#{picture.credits}</i><br /><i>#{picture.image_text_en}</i></div>"
     end
   end
 end
