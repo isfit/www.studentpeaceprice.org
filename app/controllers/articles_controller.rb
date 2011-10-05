@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1.xml
   def show
     @article = Article.find(params[:id])
-    @picture_path ="#{Rails.root}/public/images/spp_article_images/" + "#{@article.id}.jpg"
+    @picture_path ="#{Rails.root}/public/assets/spp_article_images/" + "#{@article.id}.jpg"
     @picture = false
     if File.exists?(@picture_path)
       @picture_path = "/assets/spp_article_images/" + "#{@article.id}_3.jpg"
