@@ -38,10 +38,10 @@ class ArticlesController < ApplicationController
     @picture_path ="#{Rails.root}/public/images/spp_article_images/" + "#{@article.id}.jpg"
     @picture = false
     if File.exists?(@picture_path)
-      @picture_path = "/images/spp_article_images/" + "#{@article.id}_3.jpg"
+      @picture_path = "/assets/spp_article_images/" + "#{@article.id}_3.jpg"
       @picture = true
     else
-      @picture_path= "/images/default/spp_default.png"
+      @picture_path= "/assets/default/spp_default.png"
       @picture = true
     end
     respond_to do |format|
