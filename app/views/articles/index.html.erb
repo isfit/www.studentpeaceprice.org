@@ -3,7 +3,8 @@
       <div class ="grid_12 mainart alpha omega">
         <a href=<%="#{article_path(article)}?tab=#{params[:tab]}"%>>
           <%if article.youtube_link.blank?%>
-          <%=clever_image_tag("spp_article_images/#{article.id}_1", 4,:class => "mainpic")%>
+          <%#=clever_image_tag("spp_article_images/#{article.id}_1", 4,:class => "mainpic")%>
+          <%= image_tag article.spp_article_image.url(:front_large), class: "mainpic" %>
           <%else%>
             <div style="float:left; margin-right:20px; margin-left:20px; margin-top: 20px; margin-bottom: 10px;  text-align:center">
               <object width="347" height="154"><param name="movie" value="http://www.youtube.com/v/<%=article.youtube_link%>?fs=1&amp;hl=en_US">
@@ -31,7 +32,8 @@
         <a href=<%="#{article_path(article)}?tab=#{params[:tab]}"%>>
           <%if article.youtube_link.blank?%>         
                     <%#=clever_image_tag("spp_article_images/#{article.id}_2",:class => "artpic")%>
-                    <img src="/assets/spp_article_images/<%=article.id%>_2.jpg" class="artpic" />
+                    <%= image_tag article.spp_article_image.url(:front_small), class: "artpic" %>
+<!--                    <img src="/assets/spp_article_images/<%=article.id%>_2.jpg" class="artpic" />-->
           <%else%>
             <div style="float:left; margin-bottom: 10px;  text-align:center">
               <object width="220" height="131"><param name="movie" value="http://www.youtube.com/v/<%=article.youtube_link%>?fs=1&amp;hl=en_US">

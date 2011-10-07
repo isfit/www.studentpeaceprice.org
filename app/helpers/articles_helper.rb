@@ -40,6 +40,7 @@ module ArticlesHelper
 
   def article_image(picture_id, type, link)
     picture = Photo.find_by_id(picture_id)
+    if picture
     style = case type.to_s
       when "1" then "photo_full"
       when "2" then "photo_one_third_left"
@@ -55,6 +56,9 @@ module ArticlesHelper
       url = "<a href=/assets/#{picture.original_picture.url}><div class=#{style}><img src =/assets/#{pic_url}  /><br /><i>#{picture.credits}</i><br /><i>#{picture.image_text_en}</i></div></a>"
     else
       url = "<div class=#{style}><img src =/assets/#{pic_url}  /><br /><i>#{picture.credits}</i><br /><i>#{picture.image_text_en}</i></div>"
+    end
+    else
+    ""
     end
   end
 end
