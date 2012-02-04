@@ -1,9 +1,8 @@
 <% @articles.first(7).each do |article| %>
     <%if article.main_article %>
       <div class ="grid_12 mainart alpha omega">
-        <a href=<%="#{article_path(article)}?tab=#{params[:tab]}"%>>
+        <%= link_to article_path(article) do %>
           <%if article.youtube_link.blank?%>
-          <%#=clever_image_tag("spp_article_images/#{article.id}_1", 4,:class => "mainpic")%>
           <%= image_tag article.spp_article_image.url(:front_large), class: "mainpic" %>
           <%else%>
             <div style="float:left; margin-right:20px; margin-left:20px; margin-top: 20px; margin-bottom: 10px;  text-align:center">
@@ -15,7 +14,7 @@
           <%end%>
           <h1><%=article.title_en%></h1>
           <p><%=truncate(article.ingress_en, :length => 250, :seperator => ' ')%></p>
-        </a>
+        <% end %>
       </div>
       <div class="clear">
       </div>
@@ -29,11 +28,9 @@
     <%end%>
     <% @grid4_counter += 1
        @grid4_counter %= 3%>
-        <a href=<%="#{article_path(article)}?tab=#{params[:tab]}"%>>
+        <%= link_to article_path(article) do %>
           <%if article.youtube_link.blank?%>         
-                    <%#=clever_image_tag("spp_article_images/#{article.id}_2",:class => "artpic")%>
-                    <%= image_tag article.spp_article_image.url(:front_small), class: "artpic" %>
-<!--                    <img src="/assets/spp_article_images/<%=article.id%>_2.jpg" class="artpic" />-->
+            <%= image_tag article.spp_article_image.url(:front_small), class: "artpic" %>
           <%else%>
             <div style="float:left; margin-bottom: 10px;  text-align:center">
               <object width="220" height="131"><param name="movie" value="http://www.youtube.com/v/<%=article.youtube_link%>?fs=1&amp;hl=en_US">
@@ -44,11 +41,9 @@
           <%end%>
           <h1><%=article.title_en%></h1>
           <p><%=truncate(article.ingress_en, :length => 250, :separator => '')%></p>
-        </a>
+        <% end %>
       </div>
     <%end%>
   <%end%>
-<%=link_to "More articles", index_rest_articles_path(:tab=>params[:tab]) %>
+<%=link_to "More articles", index_rest_articles_path %>
 <br />
-
-

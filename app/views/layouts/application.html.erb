@@ -75,7 +75,7 @@
               <% current_tab.sublinks.each do |sublink| %>
                 <li>
                   <%if sublink.external_url.blank?%>
-                    <%=link_to(sublink.title_en, page_path(sublink.page, :tab => params[:tab]), :class =>(params[:id].to_i == sublink.page_id ? 'mactive' : 'minactive') )%>
+                    <%=link_to(sublink.title_en, page_path(sublink.page), :class =>(params[:id].to_i == sublink.page_id ? 'mactive' : 'minactive') )%>
                   <%else%>
                     <%=link_to(sublink.title_en, sublink.external_url, :target=>"_BLANK")%>
                   <%end%>
