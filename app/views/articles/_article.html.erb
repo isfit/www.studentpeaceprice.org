@@ -1,12 +1,14 @@
 <%= link_to article_path(article) do %>
   <%if article.youtube_link.blank?%>         
-    <%= image_tag article.spp_article_image.url(image_size), class: "artpic" %>
+    <%= image_tag article.spp_article_image.url(image_size), class: image_size== :front_large ? "mainpic" : "artpic" %>
   <%else%>
-    <div class="article_youtube">
-      <object width="220" height="131"><param name="movie" value="http://www.youtube.com/v/<%=article.youtube_link%>?fs=1&amp;hl=en_US">
-        </param><param name="allowFullScreen" value="true"></param>
-        <param name="allowscriptaccess" value="always"></param>
-        <embed src="http://www.youtube.com/v/<%=article.youtube_link%>?fs=1&amp;hl=en_US" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="220" height="131"></embed></object>
+    <div class= <%= image_size == :front_large ? "main_article_youtube" : "article_youtube" %>>
+      <object class = <%= image_size%> >
+        <param name="movie" value="http://www.youtube.com/v/<%=article.youtube_link%>?fs=1&amp;hl=en_US"/>
+        <param name="allowFullScreen" value="true"/>
+        <param name="allowscriptaccess" value="always"/>
+        <embed class = <%=image_size%> src="http://www.youtube.com/v/<%=article.youtube_link%>?fs=1&amp;hl=en_US" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true"/>
+      </object>
     </div>
   <%end%>
   <h1><%=article.title_en%></h1>

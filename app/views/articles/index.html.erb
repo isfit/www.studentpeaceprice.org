@@ -1,28 +1,15 @@
 <% @articles.first(7).each do |article| %>
-    <%if article.main_article %>
-      <div class ="grid_12 mainart alpha omega">
-        <%= link_to article_path(article) do %>
-          <%if article.youtube_link.blank?%>
-          <%= image_tag article.spp_article_image.url(:front_large), class: "mainpic" %>
-          <%else%>
-            <div class = "main_article_youtube">
-              <object width="347" height="154"><param name="movie" value="http://www.youtube.com/v/<%=article.youtube_link%>?fs=1&amp;hl=en_US">
-              </param><param name="allowFullScreen" value="true"></param>
-              <param name="allowscriptaccess" value="always"></param>
-              <embed src="http://www.youtube.com/v/<%=article.youtube_link%>?fs=1&amp;hl=en_US" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="347" height="154"></embed></object>
-            </div>
-          <%end%>
-          <h1><%=article.title_en%></h1>
-          <p><%=truncate(article.ingress_en, :length => 250, :seperator => ' ')%></p>
-        <% end %>
-      </div>
-      <div class="clear">
-      </div>
-    <%else%>
-      <div class="grid_4 art <%=cycle "alpha", "", "omega"%>">
-        <%= render article, image_size: :front_small %>
-      </div>
-    <%end%>
+  <%if article.main_article %>
+    <div class ="grid_12 mainart alpha omega">
+      <%= render article, image_size: :front_large %>
+    </div>
+    <div class="clear">
+    </div>
+  <%else%>
+    <div class="grid_4 art <%=cycle "alpha", "", "omega"%>">
+      <%= render article, image_size: :front_small %>
+    </div>
   <%end%>
+<%end%>
 <%=link_to "More articles", index_rest_articles_path %>
 <br />
