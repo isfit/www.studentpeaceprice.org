@@ -1,27 +1,15 @@
 <% @articles.first(24).each do |article| %>
-    <% if @grid4_counter == 0%>
-      <div class="grid_4 art alpha">
-    <%elsif @grid4_counter == 1%>
-      <div class="grid_4 art">
-    <%else%>
-      <div class="grid_4 art omega">
-    <%end%>
-    <% @grid4_counter += 1
-       @grid4_counter %= 3%>
-        <a href=<%="#{article_path(article)}?tab=#{params[:tab]}"%>>
-          <%if article.youtube_link.blank?%>         
-                    <%=clever_image_tag("spp_article_images/#{article.id}_2", 3,:class => "artpic")%>
-          <%else%>
-            <div style="float:left; margin-bottom: 10px;  text-align:center">
-              <object width="220" height="131"><param name="movie" value="http://www.youtube.com/v/<%=article.youtube_link%>?fs=1&amp;hl=en_US">
-              </param><param name="allowFullScreen" value="true"></param>
-              <param name="allowscriptaccess" value="always"></param>
-              <embed src="http://www.youtube.com/v/<%=article.youtube_link%>?fs=1&amp;hl=en_US" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="220" height="131"></embed></object>
-            </div>
-          <%end%>
-          <h1><%=article.title_en%></h1>
-          <p><%=truncate(article.ingress_en, :length => 250, :separator => '')%></p>
-        </a>
-      </div>
+  <% if @grid4_counter == 0%>
+    <div class="grid_4 art alpha">
+  <%elsif @grid4_counter == 1%>
+    <div class="grid_4 art">
+  <%else%>
+    <div class="grid_4 art omega">
   <%end%>
-
+    <%  
+      @grid4_counter += 1
+      @grid4_counter %= 3
+    %>
+    <%= render article, image_size: :front_small %>
+  </div>
+<%end%>
