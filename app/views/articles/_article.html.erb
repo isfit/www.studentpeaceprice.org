@@ -2,7 +2,7 @@
   <%if article.youtube_link.blank?%>         
     <%= image_tag article.spp_article_image.url(image_size), class: "artpic" %>
   <%else%>
-    <div style="float:left; margin-bottom: 10px;  text-align:center">
+    <div class="article_youtube">
       <object width="220" height="131"><param name="movie" value="http://www.youtube.com/v/<%=article.youtube_link%>?fs=1&amp;hl=en_US">
         </param><param name="allowFullScreen" value="true"></param>
         <param name="allowscriptaccess" value="always"></param>
