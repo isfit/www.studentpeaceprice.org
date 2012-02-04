@@ -19,16 +19,8 @@
       <div class="clear">
       </div>
     <%else%>
-    <% if @grid4_counter == 0%>
-      <div class="grid_4 art alpha">
-    <%elsif @grid4_counter == 1%>
-      <div class="grid_4 art">
-    <%else%>
-      <div class="grid_4 art omega">
-    <%end%>
-    <% @grid4_counter += 1
-       @grid4_counter %= 3%>
-       <%= render article, image_size: :front_small %>
+      <div class="grid_4 art <%=cycle "alpha", "", "omega"%>">
+        <%= render article, image_size: :front_small %>
       </div>
     <%end%>
   <%end%>
