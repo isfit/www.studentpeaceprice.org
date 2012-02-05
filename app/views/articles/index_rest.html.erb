@@ -1,4 +1,4 @@
-<% @articles.first(24).each do |article| %>
+<% @articles.each do |article| %>
   <div class="grid_4 art <%=cycle "alpha", "", "omega"%>">
     <%= render article, image_size: :front_small %>
   </div>

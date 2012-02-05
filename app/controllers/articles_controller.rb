@@ -1,34 +1,14 @@
 class ArticlesController < ApplicationController
+  respond_to :html, :xml
   # GET /articles
   # GET /articles.xml
   def index
-    @grid4_counter = 0
-    @articles = Article.find(:all, :conditions => "deleted = 0 AND visible = 1")
-
-    @articles = @articles.sort_by { |x| -x.weight }
-
-    @articles.each do |a|
-     a.main_article = false
-    end
-    @articles.first.main_article = true
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @articles }
-    end
+    @articles = Article.visible.sorted.limit(7)
+    @main_article = @articles.shift
   end
 
   def index_rest
-    @grid4_counter = 0
-    @articles = Article.find(:all, :conditions => "deleted = 0 AND visible = 1")
-
-    @articles = @articles.sort_by { |x| -x.weight }
-    @articles = @articles.drop(7)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @articles }
-    end
+    @articles = Article.visible.sorted.offset(7)
   end
  
   # GET /articles/1

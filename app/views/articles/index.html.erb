@@ -1,15 +1,12 @@
-<% @articles.first(7).each do |article| %>
-  <%if article.main_article %>
-    <div class ="grid_12 mainart alpha omega">
-      <%= render article, image_size: :front_large %>
-    </div>
-    <div class="clear">
-    </div>
-  <%else%>
-    <div class="grid_4 art <%=cycle "alpha", "", "omega"%>">
-      <%= render article, image_size: :front_small %>
-    </div>
-  <%end%>
+<div class ="grid_12 mainart alpha omega">
+  <%= render @main_article, image_size: :front_large %>
+</div>
+<div class="clear">
+</div>
+<% @articles.each do |article| %>
+  <div class="grid_4 art <%=cycle "alpha", "", "omega"%>">
+    <%= render article, image_size: :front_small %>
+  </div>
 <%end%>
 <%=link_to "More articles", index_rest_articles_path %>
 <br />
