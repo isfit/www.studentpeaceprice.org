@@ -8,35 +8,27 @@
   <meta property="og:description" content="<%=@article.ingress_en%>"/>
 <%end%>
 
-<%if @article.youtube_link.blank? %>
-  
-  <div style="float:right; margin-left:20px; margin-top: 20px; margin-bottom: 10px;  text-align:center">
-  <%= image_tag @article.spp_article_image.url(:article) %>
-  <%#=raw image_tag @picture_path%><br />
-  <%#=@article.image_text%>
-  </div>
-<%else%>
-  <div style="float:right; margin-left:20px; margin-top: 20px; margin-bottom: 10px;  text-align:center">
-    <object width="446" height="346"><param name="movie" value="http://www.youtube.com/v/<%=@article.youtube_link%>?fs=1&amp;hl=en_US">
-    </param><param name="allowFullScreen" value="true"></param>
-    <param name="allowscriptaccess" value="always"></param>
-    <embed src="http://www.youtube.com/v/<%=@article.youtube_link%>?fs=1&amp;hl=en_US" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="446" height="346"></embed></object>
-  </div>
-<%end%>
+
+<div class="show_article">
+  <%if @article.youtube_link? %>
+    <%= youtube_movie @article.youtube_link, :show_youtube %>
+  <%else%>
+    <%= image_tag @article.spp_article_image.url(:article) %>
+  <%end%>
+</div>
 
 <span class="otherart">
-<h1><%=raw @article.title_en%></h1>
-<% unless @article.byline.blank? %>
-  <p>
-  <%=raw @article.byline%>
-  <br>
-  <%=  @article.created_at.strftime("%F")%>
-  </p>
-<%end%>
-<h2><%=raw @article.ingress_en%></h2>
-<%=raw format(@article.body_en)%>
+  <h1><%=raw @article.title_en%></h1>
+  <% if @article.byline? %>
+    <p>
+    <%=raw @article.byline%>
+    <br>
+    <%=  @article.created_at.strftime("%F")%>
+    </p>
+  <%end%>
+  <h2><%=raw @article.ingress_en%></h2>
+  <%=raw format(@article.body_en)%>
 </span>
-<%if @article.got_comments%>
-<%require 'cgi'%>
+<%if @article.got_comments %>
   <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=132392463483362&amp;xfbml=1"></script><fb:comments width="710"></fb:comments>
 <%end%>
