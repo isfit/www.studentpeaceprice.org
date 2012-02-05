@@ -1,8 +1,4 @@
 class PagesController < ApplicationController
-  # GET /pages
-  # GET /pages.xml
-
-
   # GET /pages/1
   # GET /pages/1.xml
   def show
