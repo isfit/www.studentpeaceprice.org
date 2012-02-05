@@ -1,4 +1,9 @@
 module ArticlesHelper
+
+  def youtube_movie(link, klass)
+    render "shared/youtube", link: link, klass: klass
+  end
+  
   def format(str)
     set_correct_tags(str)
     reg = Regexp.new(/\[([\w ,:"]+)\]\(([A-Za-z0-9_:.=&+-?\/]+)\)/)

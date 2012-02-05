@@ -10,6 +10,14 @@
   text-align:center;
 }
 
+div.show_article {
+  float:right; 
+  margin-left:20px; 
+  margin-top: 20px; 
+  margin-bottom: 10px;  
+  text-align:center;
+}
+
 object.front_large embed.front_large{
   width:347px;
   height:154px;
@@ -18,4 +26,9 @@ object.front_large embed.front_large{
 object.front_small embed.front_small{
   width:220px;
   height:131px;
+}
+
+object.show_youtube embed.show_youtube{
+  width:446px;
+  height:346px;
 }
