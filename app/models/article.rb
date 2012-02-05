@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  set_primary_key :id
+  self.primary_key = :id
 
   scope :visible, where(deleted: 0, visible: 1)
   scope :sorted, order("weight DESC")
