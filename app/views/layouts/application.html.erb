@@ -20,7 +20,6 @@
 </script>
 
 <%= stylesheet_link_tag 'application' %>
-<%= javascript_include_tag 'application' %>
 
 <%=yield :head%>
 
@@ -98,7 +97,6 @@
             </div>
           </div>
           <div id="sidebar" class="grid_3">
-              <%= render :partial => 'events/calendar' %>
             <%@side_quote = Quote.find(:all, :conditions=>"side = 1", :order=>:weight).last%>
             <%if @side_quote != nil%>
               <p><%=@side_quote.quote%></p>
@@ -108,7 +106,7 @@
               <%=@side_quote.position%></p>
             <%end%>
 			  <br>
-<!--<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script src="http://widgets.twimg.com/j/2/widget.js"></script>
 <script>
 new TWTR.Widget({
   version: 2,
@@ -141,7 +139,7 @@ new TWTR.Widget({
     behavior: 'default'
   }
 }).render().start();
-</script>-->
+</script>
 <div style="padding-top:5px;background-color:white;text-align:right">
             <%= link_to image_tag("facebook.png"), "http://www.facebook.com/pages/The-Student-Peace-Prize/163068897045389", :target => "_blank" %>
             <%= link_to image_tag("twitter.png"), "http://www.twitter.com/studpeaceprize", :target => "_blank" %>
@@ -226,5 +224,6 @@ new TWTR.Widget({
                 E-mail:<br><font color="#d56b1d">contact@studentpeaceprize.org</font></p>
             </div>
           </div>
+        <%= javascript_include_tag 'application' %>
         </body>
       </html>
