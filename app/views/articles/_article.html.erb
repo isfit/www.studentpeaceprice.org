@@ -1,0 +1,11 @@
+<%= link_to article_path(article) do %>
+  <%if article.youtube_link?%>  
+    <div class= <%= image_size == :front_large ? "main_article_youtube" : "article_youtube" %>>
+      <%= youtube_movie article.youtube_link, image_size %>
+    </div>
+  <%else%>
+    <%= image_tag article.spp_article_image.url(image_size), class: image_size== :front_large ? "mainpic" : "artpic" %>
+  <%end%>
+  <h1><%=article.title_en%></h1>
+  <p><%=truncate(article.ingress_en, :length => 250, :separator => '')%></p>
+<% end %>

@@ -7,7 +7,7 @@
   <% end %>
   <span class="otherart">
     <h1><%=@page.title_en%></h1>
-    <h2><%=@page.ingress_en%></h2>
+    <h2><%= format_ingress@page.ingress_en%></h2>
     <%=raw format(@page.body_en)%>
     <% unless @page.byline.blank? %>
       <p>
@@ -18,6 +18,3 @@
     <%end%>
   </span>
 </div>
-
-
-
