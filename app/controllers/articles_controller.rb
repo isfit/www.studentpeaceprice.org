@@ -3,8 +3,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.xml
   def index
-    @articles = Article.visible.sorted.limit(7)
-    @main_article = @articles.shift
+    @articles = Article.visible.sorted.limit(5)
   end
 
   def index_rest

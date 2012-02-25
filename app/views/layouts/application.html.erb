@@ -1,10 +1,34 @@
 <!DOCTYPE html>
-<html xmlns:og="http://opengraphprotocol.org/schema/"
-      xmlns:fb="http://www.facebook.com/2008/fbml"
-      lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>The Student Peace Prize</title>
+    <meta charset="utf-8">
+    <title><%= yield :title %>The Student Peace Prize</title>
+    <meta name="description" content="The Student Peace Prize is given out every other year on behalf of all students in Norway.">
+    <meta name="keywords" content="student, peace, prize, peace prize, student peace prize">
+    <meta property="og:site_name" content="The Student Peace Prize">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.studentpeaceprize.org/">
+    <meta property="og:title" content="The Student Peace Prize">
+    <meta property="og:description" content="The Student Peace Prize is given out every other year on behalf of all students in Norway.">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <%= yield :styles %>
+    <%= stylesheet_link_tag 'application' %>
+
+    <!-- Le fav and touch icons -->
+    <!--
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
     <script type="text/javascript">
 
       var _gaq = _gaq || [];
@@ -19,211 +43,150 @@
 
 </script>
 
-<%= stylesheet_link_tag 'application' %>
 
-<%=yield :head%>
 
-  </head>
-  <body>
-    <div id="wrapper" class="container_16">
-      <div id="quotation" class="grid_8 prefix_1 suffix_3">
-        <%@top_quote = Quote.find(:all, :conditions=>"top = 1", :order=>:weight).last%>
-        <%if @top_quote != nil%><p class="quote"><%= image_tag "quote.png", :class=> 'quote',  :height=>'21', :width => '24'%> <%=@top_quote.quote%> </p>
-          <br /> <p class="quote2"><%=@top_quote.name%>, <%=@top_quote.position%></p>
-        <%end%>
-      </div>
-      <div class="clear">
-      </div>
-      <div id="nav" class="grid_12 suffix_4">
-        <% tabs = Tab.find(:all)%>
-        <ul id="menu">
-          <% current_tab = nil
-          if params[:tab] == nil
-            params[:tab] = "home"
-          end
-          tabs.each do |tab| 
-            if tab.tag == params[:tab]
-              current_tab = tab
-            end
-            if tab.tag == "home"%>
-            <li>
-              <%= link_to( tab.name_en, root_path, :class =>(params[:tab] == tab.tag ? 'mactive' : 'minactive'))%>
-            </li>
-            <%end%>
-            <%if tab.sublinks.first != nil%>
-              <li>
-                <%=link_to(tab.name_en, page_path(tab.sublinks.first.page, :tab => tab.tag), :class =>(params[:tab] == tab.tag ? 'mactive' : 'minactive'))%>
-                </li>
-              <%end%>
-            <%end%>
-          </ul>
-        </div>
-        <div class="clear">
-        </div>
-        <div id="headertext" class="grid_12 suffix_4">
-        </div>
-        <div class="clear">
-        </div>
-        <%# @currentTab = Tab.find(:first, :conditions=> {:tag => params[:tag]})%>
-        <%if current_tab.sublinks.size == 0%>
-          <div id="subnav" class="grid_12">
-          </div>
-        <%else%>
-          <div id="activesubnav" class="grid_12">
-            <ul id="submenu">
-              <% current_tab.sublinks.each do |sublink| %>
-                <li>
-                  <%if sublink.external_url.blank?%>
-                    <%=link_to(sublink.title_en, page_path(sublink.page), :class =>(params[:id].to_i == sublink.page_id ? 'mactive' : 'minactive') )%>
-                  <%else%>
-                    <%=link_to(sublink.title_en, sublink.external_url, :target=>"_BLANK")%>
-                  <%end%>
-                  </li>
-                <%end%>
-              </ul>
-            </div>
-          <%end%>
-          <div id="spacersubnav" class="grid_3 suffix_1">
-          </div>
-          <div class="clear">
-          </div>
-          <div id="mainframe" class="grid_12">
+<%= yield :head %>
+   </head>
 
-            <%= yield %>
-            <div id="mainend" class="grid_12 alpha omega">
-              <hr>
-            </div>
-            <div class="clear">
-            </div>
-          </div>
-          <div id="sidebar" class="grid_3">
-            <%@side_quote = Quote.find(:all, :conditions=>"side = 1", :order=>:weight).last%>
-            <%if @side_quote != nil%>
-              <p><%=@side_quote.quote%></p>
-              <p class="signature">
-              <%if @side_quote.picture_path != ""%><%= image_tag @side_quote.picture_path, :width => "135px" %><%end%>
-              <%=@side_quote.name%><br />
-              <%=@side_quote.position%></p>
-            <%end%>
-			  <br>
-<script src="http://widgets.twimg.com/j/2/widget.js"></script>
-<script>
-new TWTR.Widget({
-  version: 2,
-  type: 'search',
-  search: 'studpeaceprize',
-  interval: 6000,
-  title: '',
-  subject: 'Twitter feed',
-  width: 'auto',
-  height: 0,
-  theme: {
-    shell: {
-      background: '135',
-      color: '250'
-    },
-    tweets: {
-      background: 'ff0000',
-      color: '255',
-      links: '0'
-    }
-  },
-  features: {
-    scrollbar: false,
-    loop: true,
-    live: true,
-    hashtags: true,
-    timestamp: true,
-    avatars: true,
-    toptweets: true,
-    behavior: 'default'
-  }
-}).render().start();
-</script>
-<div style="padding-top:5px;background-color:white;text-align:right">
-            <%= link_to image_tag("facebook.png"), "http://www.facebook.com/pages/The-Student-Peace-Prize/163068897045389", :target => "_blank" %>
-            <%= link_to image_tag("twitter.png"), "http://www.twitter.com/studpeaceprize", :target => "_blank" %>
-</div>
-          </div>
-          <div id="spacerright" class="grid_1">
-          </div>
-          <div class="clear">
-          </div>
-          <div id="footer" class="grid_15 suffix_1">
-            <hr>
-          </div>
-          <div id="footernav" class="grid_8">
-            <h1>Navigation</h1>
-            <hr width="460px">
-            <div class="grid_2 alpha">
-
-              <ul class="footermenu" >
-                <% tabs = Tab.find(:all) %>
-                <li ><%=link_to(tabs[0].name_en, root_path, :class => :category)%></li>
-                <li > &nbsp;</li>
-                <li ><%=link_to(tabs[1].name_en, page_path(tabs[1].sublinks.first.page, :tab => tabs[1].tag), :class => :category)%></li>
+   <body>
+     <div id="fb-root"></div>
+     <script>(function(d, s, id) {
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) return;
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/nb_NO/all.js#xfbml=1&appId=132392463483362";
+       fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));</script>
+     <div class="container">
+       <div class="row">
+         <div class="span12" id="header">
+           <%= link_to image_tag("logo.png"), root_path %>
+           <div id="tabs" class="pull-right">
+             <% tabs = Tab.find(:all)%>
+             <ul class="nav nav-pills">
+               <% current_tab = nil %>
+               <%if params[:tab] == nil%>
+                 <% params[:tab] = "home" %>
+               <% end %>
+               <% tabs.each do |tab| %>
+                 <% if tab.tag == params[:tab] %>
+                   <% current_tab = tab %>
+                 <% end %>
+                 <% if tab.tag == "home"%>
+                   <li class="<%= params[:tab] == tab.tag ? 'active' : '' %>">
+                   <%=raw link_to tab.name_en.html_safe, root_path%>
+                   </li>
+                 <%end%>
+                 <%if tab.sublinks.first != nil%>
+                   <li class="<%= params[:tab] == tab.tag ? 'active' : '' %>">
+                   <%=raw link_to(tab.name_en.html_safe, page_path(tab.sublinks.first.page, :tab => tab.tag))%>
+                   </li>
+                 <%end%>
+               <%end%>
+             </ul>
+           </div>
+         </div>
+       </div>
+       <div id="main" class="row">
+         <div class="span8" id="content">
+           <%= yield %>
+         </div>
+         <div class="span4" id="sidebar">
+           <% if current_tab.sublinks.count > 0 %>
+             <div class="navigation well widget">
+               <ul class="nav nav-list">
+                 <li class="nav-header">Navigation</li>
+                 <% current_tab.sublinks.each do |sublink| %>
+                   <li class="<%= params[:id].to_i == sublink.page_id ? "active":"" %>">
+                   <% if sublink.external_url.blank? %>
+                     <%=raw link_to sublink.title_en, page_path(sublink.page) %>
+                   <% else %>
+                     <%=raw link_to sublink.title_en, sublink.external_url, target: "_BLANK" %>
+                   <% end %>
+                   </li>
+                 <% end %>
+               </ul>
+             </div>
+           <% end %>
+           <div class="well twitter widget">
+             <div class="pull-right">
+               <a href="https://twitter.com/StudPeacePrize" class="twitter-follow-button" data-show-count="false" data-width="160px">Follow @StudPeacePrize</a>
+               <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+             </div>
+             <div id="twitter-box">
+               <h1>Twitter</h1>
+               <img src="https://si0.twimg.com/profile_images/195954511/profilbilde1_normal.png" class="pull-left twitpic" height="30px" width="30px" />
+               <p>Dette er en kjempelang tweet for å teste om den nye @ISFiT-siden støtter lange tweets. Utrolig hvor mye man får inn på 160 tegn... #ISFiT</p>
+               <small class="pull-right">Dag-Inge Aas @ Trondheim, Norway</small>
+             </div>
+           </div>
+           <div class="well facebook widget">
+             <div class="pull-right">
+               <div class="fb-like" data-href="http://facebook.com/studentpeaceprize" data-send="false" data-layout="box_count" data-width="45" data-show-faces="false"></div>
+             </div>
+             <h1>Facebook</h1>
+             <p>We are on Facebook! Are you? Like us to get the latest updates.</p>
+           </div>
+           <div class="promotional">
+             <a href="http://www.isfit.org/assets/downloads/final.pdf">
+               <img src="assets/img/theisfitway.png">
+             </a>
+           </div>
+           <div class="well widget" id="spp-news">
+             <h1>Press</h1>
+             <div class="spp-article">
+               <img src="assets/img/google.jpg">
+               <h2>Global Truce Day and the Student Peace Prize</h2>
+               <p>Lederen av Studentenes Fredspris, Therese Høstad og Presidenten for ISFiT (Internasjonal Studentfestival i Trondheim), Kaja Juul Skarbø vil mandag 27. februar delta på den spesielle begivenheten i London. Peace One Day-grunnlegger Jeremy Gilley og ambassadør Jude Law vil være tilstede. I samarbeid med NSO (Norsk Studentorganisasjon) skal ISFiT og Studentenes Fredspris engasjere norske og internasjonale studenter på Fredsdagen 21. september.</p>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div> <!-- /container -->
+     <div id="footer" class="container">
+       <div class="row">
+         <div class="span6">
+           <h1>Navigation</h1>
+           <!--
+           <% tabs = Tab.all %>
+           <div class="row">
+             <div class="span2">
+               <ul class="nav nav-list">
+                 <li class="nav-header"><%= tabs[0].name_en %></li>
+                 <li><%= link_to "Home", root_path %></li>
+                 <li class="nav-header"><%=tabs[1].name_en %></li>
                 <%tabs[1].sublinks.each do |sublink| %>
-                  <li><%=link_to(sublink.title_en, page_path(sublink.page, :tab => tabs[1].tag), :class=> :subcategory)%></li>
-                <%end%>
-                <br />
-              </ul>
-            </div>
-            <div class="grid_2">
-              <ul class="footermenu" >
-                <li ><%=link_to(tabs[2].name_en, page_path(tabs[2].sublinks.first.page, :tab => tabs[2].tag), :class=> :category)%></li>
-                <%tabs[2].sublinks.each do |sublink| %>
-                  <li><%=link_to(sublink.title_en, page_path(sublink.page, :tab => tabs[2].tag), :class=> :subcategory)%></li>
+                  <li><%=link_to(sublink.title_en, page_path(sublink.page, :tab => tabs[1].tag))%></li>
                 <%end%>
               </ul>
             </div>
-            <div class="grid_2">
-              <ul class="footermenu" >
-                <li ><%=link_to(tabs[3].name_en, page_path(tabs[3].sublinks.first.page, :tab => tabs[3].tag), :class=> :category)%></li>
-                <%tabs[3].sublinks.each do |sublink| %>
-                  <li><%=link_to(sublink.title_en, page_path(sublink.page, :tab => tabs[3].tag), :class => :subcategory)%></li>
-                <%end%>
-              </ul>
-            </div>
-            <div class="grid_2 omega">
-              <ul class="footermenu" >
-                <li ><%=link_to(tabs[4].name_en, page_path(tabs[4].sublinks.first.page, :tab => tabs[4].tag), :class => :category)%></li>
-                <%tabs[4].sublinks.each do |sublink| %>
-                  <li><%=link_to(sublink.title_en, page_path(sublink.page, :tab => tabs[4].tag), :class => :subcategory)%></li>
-                <%end%>
+             TODO complete this -->
+         </div>
 
-                <li >&nbsp;</li>
-                <li ><%=link_to(tabs[5].name_en, page_path(tabs[5].sublinks.first.page, :tab => tabs[5].tag), :class => :category)%></li>
-                <%tabs[5].sublinks.each do |sublink| %>
-                  <li><%=link_to(sublink.title_en, page_path(sublink.page, :tab => tabs[5].tag), :class => :subcategory)%></li>
-                <%end%>
+         <div class="span3">
+           <h1>Partners</h1>
+           <%=link_to image_tag("isfit.png", :alt=>'isfit', :width=>'100'), "http://www.isfit.org", :target=>"_blank"%>
+           <%=link_to image_tag("saih-logo.gif", :alt=>'SAIH'), "http://www.saih.no", :target=>"_blank"%>
+           <%=link_to image_tag("logoNSO.jpg", :alt=>'nso'), "http://www.student.no", :target=>"_blank"%><br>
+         </div>
+         <div class="span3">
+           <h1>Contact</h1>
+           <p>The Student Peace Prize Secretariat<br>
+           <i class="icon-signal"></i> <a href="tel:+4748136233">+47 481 36 233</a><br>
+           <i class="icon-envelope"></i> <a href="mailto:contact@studentpeaceprize.org">contact@studentpeaceprize.org</a>
+           </p>
+         </div>
 
-              </ul>
-            </div>
+       </div>
+     </div>
 
-          </div>
 
-          <div id="footerpart" class="grid_4">
-            <h1>Partners</h1>
-            <hr>
-            <%=link_to image_tag("saih-logo.gif", :alt=>'SAIH'), "http://www.saih.no", :target=>"_blank"%>
-            <div class="grid_2 alpha">
-              <%#=link_to image_tag ("sit.png", :alt=>'sit', :width=>'100'), "http://www.sit.no", :target=>"_blank"%>
-              <%=link_to image_tag("logoNSO.jpg", :alt=>'nso'), "http://www.student.no", :target=>"_blank"%><br>
-			  <%=link_to image_tag("isfit.png", :alt=>'isfit', :width=>'100'), "http://www.isfit.org", :target=>"_blank"%>
-            </div>
-            <div class="grid_2 omega">
-             
-            </div>
-      </div>
-          <div id="footerinfo" class="grid_3 omega">
-            <h1>Contact info</h1>
-            <hr>
-            <div class="grid_3 alpha omega">
-              <p>The StudentPeace Prize Secretariat<br>
-               Phone:<br><font color="#63b0b3">(+47) 91749414</font><br>
-                E-mail:<br><font color="#d56b1d">contact@studentpeaceprize.org</font></p>
-            </div>
-          </div>
-        <%= javascript_include_tag 'application' %>
-        </body>
-      </html>
+     <!-- Le javascript
+     ================================================== -->
+     <!-- Placed at the end of the document so the pages load faster -->
+     <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' %>
+     <%= javascript_include_tag 'application' %>
+     <%= yield :scripts %>
+
+   </body>
+ </html>

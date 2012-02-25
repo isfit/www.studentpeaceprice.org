@@ -8,8 +8,11 @@
   <meta property="og:description" content="<%=@article.ingress_en%>"/>
 <%end%>
 
+<%= content_for :styles do %>
+  <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=PT+Sans:700|PT+Serif:400,700,400italic" %>
+<% end %>
 
-<div class="show_article">
+<div id="article-media">
   <%if @article.youtube_link? %>
     <%= youtube_movie @article.youtube_link, :show_youtube %>
   <%else%>
@@ -17,18 +20,21 @@
   <%end%>
 </div>
 
-<span class="otherart">
-  <h1><%=raw @article.title_en%></h1>
-  <% if @article.byline? %>
-    <p>
-    <%=raw @article.byline%>
-    <br>
-    <%=  @article.created_at.strftime("%F")%>
-    </p>
-  <%end%>
-  <h2><%=raw @article.ingress_en%></h2>
-  <%=raw format(@article.body_en)%>
-</span>
+<div id="article-header">
+  <div class="fb-like pull-right" data-href="<%= request.url %>" data-send="false" data-layout="box_count" data-width="45" data-show-faces="false"></div>
+  <h1><%= @article.title_en%></h1>
+  <p><%= @article.ingress_en%></p>
+</div>
+<div id="article-metadata">
+  <span class="byline">
+    <em>Text:</em> <%= "PLACEHOLDER" %>
+    <em>Photo:</em> <%= @article.image_text %>
+    <em>Date:</em> <%= @article.created_at.strftime("%F") %>
+  </span>
+</div>
+<div id="article-body">
+<%=raw format(@article.body_en)%>
+</div>
 <%if @article.got_comments %>
-  <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=132392463483362&amp;xfbml=1"></script><fb:comments width="710"></fb:comments>
+  <div class="fb-comments" data-href="<%=request.url %>" data-num-posts="5" data-width="620"></div>
 <%end%>

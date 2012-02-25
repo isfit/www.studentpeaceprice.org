@@ -1,7 +1,177 @@
-/*
- * This is a manifest file that'll automatically include all the stylesheets available in this directory
- * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
- * the top of the compiled file, but it's generally better to create a new file per style scope.
- *= require_self
- *= require_tree .
-*/
+body {
+  background-color: #fffcfb;
+  background-attachment: fixed;
+  background-image: url("/assets/logo-fredspris.png");
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+.container {
+  background-color: #fffcfb;
+  padding: 10px;
+}
+
+#footer {
+  //background: #001625 url(http://www.isfit.org/assets/footer.png) repeat-x;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#footer p {
+}
+
+#header {
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+#logo {
+  padding-top: 10px;
+}
+
+#tabs {
+  padding-top: 0px;
+}
+
+#spp-news h1 {
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.articles h1 {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.articles p {
+  text-align: justify;
+}
+
+.widget {
+  min-height: 100px;
+  background-color: #E9E7E0;
+  color: #7B776F;
+}
+
+.twitter {
+  background-color: #E9E7E0;
+  margin-bottom: 15px;
+}
+
+.twitter p {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.twitter small {
+  font-size: 0.8em;
+}
+
+.facebook {
+  min-height: 60px;
+  margin-bottom: 15px;
+}
+
+
+.widget h1, .widget small, .widget p {
+  color: #7B776F;
+}
+
+.twitpic {
+  margin-right: 3px;
+  margin-top: 3px;
+}
+
+#sidebar h1 {
+  font-size: 20px;
+  line-height: 25px;
+}
+
+#spp-news h2 {
+  font-size: 15px;
+  line-height: 18px;
+}
+
+div.promotional {
+  margin-bottom: 14px;
+}
+
+div.promotional img {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.carousel-caption h1 {
+  color: white;
+}
+
+#article-header h1 {
+font-family: 'PT Sans', sans-serif;
+font-style: normal;
+font-weight: 700;
+font-size: 48px;
+text-transform: none;
+text-decoration: none;
+letter-spacing: 0.013em;
+word-spacing: -0.008em;
+line-height: 1.2;
+}
+
+#article-header p {
+  font-family: 'PT Serif', serif;
+font-style: italic;
+font-weight: 400;
+font-size: 14px;
+text-transform: none;
+text-decoration: none;
+letter-spacing: -0.05em;
+word-spacing: 0em;
+line-height: 1.45;
+}
+
+#article-metadata {
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  padding: 3px 0px;
+}
+
+#article-metadata span.byline {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  font-family: "PT Serif";
+  text-align: center;
+}
+
+#article-metadata em {
+  padding-left: 2em;
+}
+
+#article-body p ,#article-body ul,#article-body ol {
+font-family: 'PT Serif', serif;
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+text-transform: none;
+text-decoration: none;
+letter-spacing: 0em;
+word-spacing: 0em;
+line-height: 1.4;
+text-align: justify;
+}
+
+#article-body h2,#article-body h3,#article-body h4,#article-body h5,#article-body h6 {
+  font-family: 'PT Sans', sans-serif;
+font-style: normal;
+font-weight: 700;
+text-transform: none;
+text-decoration: none;
+line-height: 1.5;
+}
+
+#article-body blockquote > p {
+  font-size: 16px;
+  font-weight: 700;
+}
+

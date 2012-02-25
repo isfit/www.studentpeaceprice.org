@@ -1,12 +1,10 @@
-<div class ="grid_12 mainart alpha omega">
-  <%= render @main_article, image_size: :front_large %>
-</div>
-<div class="clear">
-</div>
-<% @articles.each do |article| %>
-  <div class="grid_4 art <%=cycle "alpha", "", "omega"%>">
-    <%= render article, image_size: :front_small %>
+<div class="carousel" id="featured-news">
+  <div class="carousel-inner">
+    <% @articles.each do |article| %>
+      <% first = article == @articles.first %>
+      <%= render article, first: first %>
+    <% end %>
   </div>
-<%end%>
-<%=link_to "More articles", index_rest_articles_path %>
-<br />
+  <a class="carousel-control left" href="#featured-news" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#featured-news" data-slide="next">&rsaquo;</a>
+</div>
