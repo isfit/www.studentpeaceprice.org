@@ -130,14 +130,16 @@
                <img src="assets/img/theisfitway.png">
              </a>
            </div>
+             <% if press = Article.visible.sorted.where(press_release: 1).first %>
            <div class="well widget" id="spp-news">
              <h1>Press</h1>
+             <%= image_tag press.spp_article_image.url(:front_small) %>
              <div class="spp-article">
-               <img src="assets/img/google.jpg">
-               <h2>Global Truce Day and the Student Peace Prize</h2>
-               <p>Lederen av Studentenes Fredspris, Therese Høstad og Presidenten for ISFiT (Internasjonal Studentfestival i Trondheim), Kaja Juul Skarbø vil mandag 27. februar delta på den spesielle begivenheten i London. Peace One Day-grunnlegger Jeremy Gilley og ambassadør Jude Law vil være tilstede. I samarbeid med NSO (Norsk Studentorganisasjon) skal ISFiT og Studentenes Fredspris engasjere norske og internasjonale studenter på Fredsdagen 21. september.</p>
+               <h2><%= link_to press.title_en, article_path(press) %></h2>
+               <%= raw format press.ingress_en %>
              </div>
            </div>
+         <% end %>
          </div>
        </div>
      </div> <!-- /container -->

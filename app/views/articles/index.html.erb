@@ -22,3 +22,12 @@
     <p>The Nomination Deadline is set to <b>15th of April, 2012</b>. Please call for nominations to <%= mail_to "nominations@studentpeaceprize.org" %></p>
   </div>
 </div>
+<div class="pages row">
+  <div class="span8">
+    <% page = Page.find(20) %>
+    <h1><%= page.title_en %></h1>
+    <p><em><%= page.ingress_en %></em></p>
+    <p><%=raw format page.body_en %></p>
+  </div>
+</div>
+

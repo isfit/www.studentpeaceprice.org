@@ -10,6 +10,11 @@ body {
   background-position: left;
 }
 
+.navigation {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .container {
   background-color: #fffcfb;
   padding: 10px;
