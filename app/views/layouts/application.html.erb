@@ -139,7 +139,6 @@
              <% if press = Article.visible.sorted.where(press_release: 1).first %>
            <div class="well widget" id="spp-news">
              <h1>Press</h1>
-             <%= image_tag press.spp_article_image.url(:front_small) %>
              <div class="spp-article">
                <h2><%= link_to press.title_en, article_path(press) %></h2>
                <%= raw format press.ingress_en %>
@@ -153,7 +152,6 @@
        <hr>
        <div class="row">
          <div class="span6">
-           <h1>Navigation</h1>
            <!--
            <% tabs = Tab.all %>
            <div class="row">
