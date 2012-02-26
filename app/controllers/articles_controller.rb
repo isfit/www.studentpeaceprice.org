@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.xml
   def index
-    @articles = Article.visible.sorted.limit(5)
+    @articles = Article.visible.where(press_release: 0).sorted.limit(5)
   end
 
   def index_rest
