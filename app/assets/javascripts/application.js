@@ -5,6 +5,7 @@
 // the compiled file.
 //
 //= require bootstrap.min
+//= require twitter
 //= require_self
 $(function() {
   $('.carousel').carousel();
