@@ -3,9 +3,9 @@
 module ApplicationHelper
 
 
-  def format(str)
-   BlueCloth::new(str).to_html
-  end
+#  def format(str)
+#   BlueCloth::new(str).to_html
+#  end
 
 
   def clever_image_tag(source,type, options = {})

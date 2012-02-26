@@ -1,6 +1,3 @@
-<%= content_for :styles do %>
-<% end %>
-
 <div class="carousel" id="featured-news">
   <div class="carousel-inner">
     <% @articles.each do |article| %>
@@ -24,9 +21,11 @@
 </div>
 <div class="pages row">
   <div class="span8">
+    <hr>
     <% page = Page.find(20) %>
     <h1><%= page.title_en %></h1>
     <p><em><%= page.ingress_en %></em></p>
+    <%= image_tag "wop.jpg" %>
     <p><%=raw format page.body_en %></p>
   </div>
 </div>
