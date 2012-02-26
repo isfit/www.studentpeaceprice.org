@@ -151,30 +151,13 @@
      <div id="footer" class="container">
        <hr>
        <div class="row">
-         <div class="span6">
-           <!--
-           <% tabs = Tab.all %>
-           <div class="row">
-             <div class="span2">
-               <ul class="nav nav-list">
-                 <li class="nav-header"><%= tabs[0].name_en %></li>
-                 <li><%= link_to "Home", root_path %></li>
-                 <li class="nav-header"><%=tabs[1].name_en %></li>
-                <%tabs[1].sublinks.each do |sublink| %>
-                  <li><%=link_to(sublink.title_en, page_path(sublink.page, :tab => tabs[1].tag))%></li>
-                <%end%>
-              </ul>
-            </div>
-             TODO complete this -->
-         </div>
-
-         <div class="span3">
+         <div class="span8">
            <h1>Partners</h1>
            <%=link_to image_tag("isfit.png", :alt=>'isfit', :width=>'100'), "http://www.isfit.org", :target=>"_blank"%>
            <%=link_to image_tag("saih-logo.gif", :alt=>'SAIH'), "http://www.saih.no", :target=>"_blank"%>
-           <%=link_to image_tag("logoNSO.jpg", :alt=>'nso'), "http://www.student.no", :target=>"_blank"%><br>
+           <%=link_to image_tag("logoNSO.jpg", :alt=>'nso'), "http://www.student.no", :target=>"_blank"%>
          </div>
-         <div class="span3">
+         <div class="span4">
            <h1>Contact</h1>
            <p>Editor in Chief<br>
            <i class="icon-user"></i> <a href="mailto:bertine@isfit.org">Bertine Tønseth</a><br>

@@ -16,7 +16,7 @@
   <%if @article.youtube_link? %>
     <%= youtube_movie @article.youtube_link, :show_youtube %>
   <%else%>
-    <%= image_tag @article.spp_article_image.url(:article) %>
+    <%= image_tag @article.spp_article_image.url(:front_large) %>
   <%end%>
 </div>
 
