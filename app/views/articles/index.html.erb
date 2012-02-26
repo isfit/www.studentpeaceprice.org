@@ -1,3 +1,7 @@
+<%= content_for :styles do %>
+  <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=PT+Sans:700|PT+Serif:400,700,400italic" %>
+<% end %>
+
 <div class="carousel" id="featured-news">
   <div class="carousel-inner">
     <% @articles.each do |article| %>
@@ -7,4 +11,15 @@
   </div>
   <a class="carousel-control left" href="#featured-news" data-slide="prev">&lsaquo;</a>
   <a class="carousel-control right" href="#featured-news" data-slide="next">&rsaquo;</a>
+</div>
+<div class="articles row">
+  <div class="span4">
+  <h1><%= link_to "About the Prize".html_safe, page_path(16, tab: "about") %></h1>
+    <p>For more than a decade the Student Peace Prize has been a way to support students all over the world who are doing important work to promote peace and human rights. The Prize originates from the International Student Festival in Trondheim (ISFiT) and was first awarded in 1999. The Prize is awarded on behalf of all students in Norway.</p>
+  </div>
+  <div class="span4">
+    <h1><%= link_to "Nominate", article_path(7, tab: "about") %></h1>
+    <p>The Student Peace Prize is awarded every other year, and the process of selecting the winner for 2013 is already in motion.</p>
+    <p>The Nomination Deadline is set to <b>15th of April, 2012</b>. Please call for nominations to <%= mail_to "nominations@studentpeaceprize.org" %></p>
+  </div>
 </div>

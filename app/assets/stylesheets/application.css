@@ -38,13 +38,21 @@ body {
   line-height: 23px;
 }
 
-.articles h1 {
-  font-size: 20px;
-  line-height: 30px;
+#content p {
+  font-family: 'PT Serif', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: 0em;
+  word-spacing: 0em;
+  line-height: 1.4;
+  text-align: justify;
 }
 
-.articles p {
-  text-align: justify;
+.articles a:hover {
+  text-decoration: none;
 }
 
 .widget {
@@ -168,6 +176,18 @@ font-weight: 700;
 text-transform: none;
 text-decoration: none;
 line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'PT Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.articles h1 {
+  font-size: 33px;
+  text-transform: uppercase;
 }
 
 #article-body blockquote > p {
