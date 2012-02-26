@@ -8,5 +8,7 @@
 //= require twitter
 //= require_self
 $(function() {
-  $('.carousel').carousel();
+  $('.carousel').carousel({
+    interval: 10000
+  });
 });
