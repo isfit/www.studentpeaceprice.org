@@ -1,7 +1,6 @@
 <div class="item <%= first ? "active":"" %>">
   <%= link_to article_path(article) do %>
-    <%#= image_tag article.spp_article_image.url(:front_large) %>
-    <%= image_tag "http://stuff.daginge.com/isfit/spp/assets/img/rabab.jpg" %>
+    <%= image_tag article.spp_article_image.url(:front_large) %>
     <div class="carousel-caption">
       <h1><%= article.title_en %></h1>
       <p><%= article.ingress_en %></p>

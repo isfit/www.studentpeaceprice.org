@@ -1,3 +1,7 @@
+/*
+ *= require 'bootstrap.min.css'
+ *= require_self
+*/
 body {
   background-color: #fffcfb;
   background-attachment: fixed;
