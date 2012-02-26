@@ -45,13 +45,13 @@ function getTwitterFeed() {
 
 function cycleTwitter() {
   var active_twitter = $('#twitter-box div.active');
-  active_twitter.fadeOut(1000,function() {
+  active_twitter.fadeOut(500,function() {
     $(this).removeClass('active').removeAttr("style");
     var next_twitter = active_twitter.next();
     if (!next_twitter.exists()) {
       next_twitter = $('#twitter-box div:first');
     }
-    next_twitter.fadeIn(1000,function() {
+    next_twitter.fadeIn(500,function() {
       $(this).addClass('active');
     });
 
