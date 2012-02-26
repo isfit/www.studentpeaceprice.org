@@ -48,7 +48,7 @@ body {
 }
 
 #content p {
-  font-family: 'PT Serif', serif;
+  font-family: 'PT Serif', "Helvetica Neue", Arial, serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -179,7 +179,7 @@ text-align: justify;
 }
 
 #article-body h2,#article-body h3,#article-body h4,#article-body h5,#article-body h6 {
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'PT Sans', 'Helvetica Neue', Arial, sans-serif;
 font-style: normal;
 font-weight: 700;
 text-transform: none;
@@ -188,7 +188,7 @@ line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'PT Sans', 'Helvetica Neue', Arial, sans-serif;
   font-style: normal;
   font-weight: 700;
   line-height: 1.5;
