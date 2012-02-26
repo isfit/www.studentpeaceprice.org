@@ -8,11 +8,14 @@ module ArticlesHelper
     set_correct_tags(str)
     reg = Regexp.new(/\[([\w ,:"]+)\]\(([A-Za-z0-9_:.=&+-?\/]+)\)/)
     str.gsub!(reg, "<a href=\"\\2\" target=\"_blank\">\\1</a>")
+    str.gsub!(/##yt (\w+) yt##/, youtube_movie("\\1", "klasse"))
 
     bc = BlueCloth.new(str) 
     #str.gsub!(/([^>])\s*\r\n\r\n\s*([^<])/m, "\\1<br /><br />\\2")
     #str.gsub!(/([^>])\s*\r\n\s*([^<])/m, "\\1<br />\\2")
     #str
+
+
 
     text = bc.to_html
     #set_correct_tags(text)

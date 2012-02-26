@@ -22,8 +22,17 @@
 <div class="pages row">
   <div class="span8">
     <hr>
+    <h1><%= link_to "Global Truce", article_path(9) %></h1>
+    <p>The Student Peace Prize is proud to announce a collaboration with the internationally renowned organization Peace One Day on creating the world’s largest campaign for peace. **The launch of this global campaign will be in London on <em>Monday 27th of February at 3 PM GMT</em>, and will be streamed live through Google+ via Google Hangout.</p>
+    <%= youtube_movie "04SEzifEsGg", "klasse" %>
+  </div>
+</div>
+
+<div class="pages row">
+  <div class="span8">
+    <hr>
     <% page = Page.find(20) %>
-    <h1><%= page.title_en %></h1>
+    <h1><%= link_to page.title_en, page_path(page) %></h1>
     <p><em><%= page.ingress_en %></em></p>
     <%= image_tag "wop.jpg" %>
     <p><%=raw format page.body_en %></p>

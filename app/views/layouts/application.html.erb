@@ -126,8 +126,8 @@
              <p>We are on Facebook! Are you? Like us to get the latest updates.</p>
            </div>
            <div class="promotional">
-             <a href="http://www.isfit.org/assets/downloads/final.pdf">
-               <img src="assets/img/theisfitway.png">
+             <a href="http://www.isfit.org/">
+               <%= image_tag "isfit_logo.png" %>
              </a>
            </div>
              <% if press = Article.visible.sorted.where(press_release: 1).first %>
@@ -144,6 +144,7 @@
        </div>
      </div> <!-- /container -->
      <div id="footer" class="container">
+       <hr>
        <div class="row">
          <div class="span6">
            <h1>Navigation</h1>
