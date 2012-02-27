@@ -1,4 +1,4 @@
-<%content_for :head do %>
+<%= content_for :meta do %>
   <meta property="og:title" content="<%=@page.title_en%>."/>
   <meta property="og:type" content="non_profit"/>
   <% if @picture %>
@@ -9,8 +9,9 @@
   <meta property="fb:app_id" content="132392463483362"/>
   <meta property="og:description" content="<%=@page.ingress_en%>"/>
 <%end%>
-<%= content_for :styles do %>
-  <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=PT+Sans:700|PT+Serif:400,700,400italic" %>
+
+<%= content_for :title do %>
+  <%= @page.title_en + " -" %>
 <% end %>
 
   <%if @picture%>

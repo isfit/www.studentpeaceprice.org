@@ -1,4 +1,4 @@
-<%content_for :head do %>
+<%= content_for :meta do %>
   <meta property="og:title" content="<%=@article.title_en%>."/>
   <meta property="og:type" content="non_profit"/>
   <meta property="og:image" content="<%="http://www.studentpeaceprize.org/images/spp_article_images/"+@article.id.to_s + "_3.jpg"%>"/>
@@ -8,8 +8,8 @@
   <meta property="og:description" content="<%=@article.ingress_en%>"/>
 <%end%>
 
-<%= content_for :styles do %>
-  <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=PT+Sans:700|PT+Serif:400,700,400italic" %>
+<%= content_for :title do %>
+  <%= @article.title_en + " -" %>
 <% end %>
 
 <div id="article-media">

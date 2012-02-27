@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+
+  caches_page :index, :show
+
   respond_to :html, :xml
   # GET /articles
   # GET /articles.xml
