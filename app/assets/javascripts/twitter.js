@@ -27,7 +27,7 @@ function format(s) {
 }
 
 function getTwitterFeed() {
-  $.getJSON('http://search.twitter.com/search.json?q=%23spp%20%40studpeaceprize&callback=?', function(feed) {
+  $.getJSON('http://search.twitter.com/search.json?q=%40studpeaceprize&callback=?', function(feed) {
     var twitterbox = $("#twitter-box");
     twitterbox.empty();
     twitterbox.append('<h1>Twitter</h1>');
