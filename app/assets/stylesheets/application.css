@@ -8,6 +8,7 @@ body {
   background-image: url("/assets/logo-fredspris.png");
   background-repeat: no-repeat;
   background-position: left;
+  -webkit-font-smoothing: antialiased !important;
 }
 
 .navigation {
