@@ -1,3 +1,13 @@
+<%= content_for :meta do %>
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="http://www.studentpeaceprize.org/assets/logo-fredspris.png">
+    <meta property="og:url" content="http://www.studentpeaceprize.org/">
+    <meta property="og:title" content="The Student Peace Prize">
+    <meta property="og:site_name" content="Student Peace Prize"/>
+    <meta property="fb:app_id" content="132392463483362"/>
+    <meta property="og:description" content="The Student Peace Prize is given out every other year on behalf of all students in Norway.">
+<% end %>
+
 <div class="carousel" id="featured-news">
   <div class="carousel-inner">
     <% @articles.each do |article| %>
