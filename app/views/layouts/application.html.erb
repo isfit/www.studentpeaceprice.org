@@ -111,7 +111,7 @@
            <% end %>
            <div class="well twitter widget">
              <div class="pull-right">
-               <a href="https://twitter.com/StudPeacePrize" class="twitter-follow-button" data-show-count="false" data-width="160px">Follow @StudPeacePrize</a>
+               <a href="https://twitter.com/StudPeacePrize" class="twitter-follow-button" data-show-count="false" data-width="160px"><%= t('follow') %> @StudPeacePrize</a>
                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
              </div>
              <div id="twitter-box">
@@ -124,7 +124,7 @@
                <div class="fb-like" data-href="http://facebook.com/studentpeaceprize" data-send="false" data-layout="box_count" data-width="45" data-show-faces="false"></div>
              </div>
              <h1>Facebook</h1>
-             <p>We are on Facebook! Are you? Like us to get the latest updates.</p>
+             <p><%= t('facebook_tagline') %></p>
            </div>
            <div class="promotional">
              <a href="http://www.isfit.org/">
@@ -159,8 +159,8 @@
            <%=link_to image_tag("logoNSO.jpg", :alt=>'nso'), "http://www.student.no", :target=>"_blank"%>
          </div>
          <div class="span4">
-           <h1>Contact</h1>
-           <p>Editor in Chief<br>
+           <h1><%= t('contact') %></h1>
+           <p><%= t('contact_title') %><br>
            <i class="icon-user"></i> <a href="mailto:bertine@isfit.org">Bertine Tønseth</a><br>
            <i class="icon-signal"></i> <a href="tel:+4748136233">+47 481 36 233</a><br>
            <i class="icon-envelope"></i> <a href="mailto:contact@studentpeaceprize.org">contact@studentpeaceprize.org</a>

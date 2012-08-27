@@ -10,20 +10,20 @@
 </div>
 <div class="articles row">
   <div class="span4">
-  <h1><%= link_to "About the Prize".html_safe, page_path(16, tab: "about") %></h1>
-    <p>For more than a decade the Student Peace Prize has been a way to support students all over the world who are doing important work to promote peace and human rights. The Prize originates from the International Student Festival in Trondheim (ISFiT) and was first awarded in 1999. The Prize is awarded on behalf of all students in Norway.</p>
+  <h1><%= link_to t('.about_prize_title'), page_path(16, tab: "about") %></h1>
+    <p><%= t('.about_prize_paragraph') %></p>
   </div>
   <div class="span4">
-    <h1><%= link_to "Nominate", article_path(7, tab: "about") %></h1>
-    <p>The Student Peace Prize is awarded every other year, and the process of selecting the winner for 2013 is already in motion.</p>
-    <p>The Nomination Deadline is set to <b>1st of May, 2012</b>. Please call for nominations to <%= mail_to "nominations@studentpeaceprize.org" %></p>
+    <h1><%= link_to t('.nominate_title'), article_path(7, tab: "about") %></h1>
+    <p><%= t('.nominate_paragraph_one') %></p>
+    <p><%= raw t('.nominate_paragraph_two') %> <%= mail_to "nominations@studentpeaceprize.org" %></p>
   </div>
 </div>
 <div class="pages row">
   <div class="span8">
     <hr>
-    <h1><%= link_to "Global Truce", article_path(9) %></h1>
-    <p>The Student Peace Prize is proud to announce a collaboration with the internationally renowned organization Peace One Day on creating the world’s largest campaign for peace. The launch of this global campaign will be in London on <em>Monday 27th of February at 3 PM GMT</em>, and will be streamed live through Google+ via Google Hangout.</p>
+    <h1><%= link_to t('.global_truce_title'), article_path(9) %></h1>
+    <p><%= raw t('.global_truce_paragraph') %></p>
     <%= youtube_movie "04SEzifEsGg", "klasse" %>
   </div>
 </div>
