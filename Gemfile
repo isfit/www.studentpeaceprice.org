@@ -5,6 +5,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'mysql2'
 gem "bluecloth"
 gem 'paperclip'
+gem 'newrelic_rpm'
 
 # Gems used only for assets and not required
 # in production environments by default.

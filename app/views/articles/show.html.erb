@@ -1,15 +1,15 @@
 <%= content_for :meta do %>
-  <meta property="og:title" content="<%=@article.title_en%>."/>
-  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="<%=@article.title %>."/>
+  <meta property="og:type" content="non_profit"/>
   <meta property="og:image" content="<%="http://www.studentpeaceprize.org/images/spp_article_images/"+@article.id.to_s + "_3.jpg"%>"/>
   <meta property="og:url" content="<%=(request.url).match(/([A-Za-z0-9:._\/]+)/)[1]%>"/>          
   <meta property="og:site_name" content="Student Peace Prize"/>
   <meta property="fb:app_id" content="132392463483362"/>
-  <meta property="og:description" content="<%=@article.ingress_en%>"/>
+  <meta property="og:description" content="<%=@article.ingress%>"/>
 <%end%>
 
 <%= content_for :title do %>
-  <%= @article.title_en + " -" %>
+  <%= @article.title + " -" %>
 <% end %>
 
 <div id="article-media">
@@ -22,18 +22,18 @@
 
 <div id="article-header">
   <div class="fb-like pull-right" data-href="<%= request.url %>" data-send="false" data-layout="box_count" data-width="45" data-show-faces="false"></div>
-  <h1><%= @article.title_en%></h1>
-  <p><%= @article.ingress_en%></p>
+  <h1><%= @article.title %></h1>
+  <p><%= @article.ingress %></p>
 </div>
 <div id="article-metadata">
   <span class="byline">
-    <em>Text:</em> <%= @article.byline %>
-    <em>Photo:</em> <%= @article.image_text %>
-    <em>Date:</em> <%= @article.created_at.strftime("%F") %>
+    <em><%= t('.text') %>:</em> <%= @article.byline %>
+    <em><%= t('.photo') %>:</em> <%= @article.image_text %>
+    <em><%= t('.date') %>:</em> <%= @article.created_at.strftime("%F") %>
   </span>
 </div>
 <div id="article-body">
-<%=raw format(@article.body_en)%>
+<%=raw format(@article.body)%>
 </div>
 <%if @article.got_comments %>
   <div class="fb-comments" data-href="<%=request.url %>" data-num-posts="5" data-width="620"></div>

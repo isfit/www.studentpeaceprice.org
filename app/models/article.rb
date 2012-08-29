@@ -1,8 +1,12 @@
 class Article < ActiveRecord::Base
+  lang_attr :title, :ingress, :body
+
   self.primary_key = :id
 
   scope :visible, where(deleted: 0, visible: 1)
   scope :sorted, order("weight DESC")
+  scope :norwegian, where("title_no IS NOT ''")
+  scope :english, where("title_en IS NOT ''")
   
   has_attached_file :spp_article_image, styles:  {
     front_large: {geometry: "620x365#", processors: [:cropper] },

@@ -71,12 +71,12 @@
                  <% end %>
                  <% if tab.tag == "home"%>
                    <li class="<%= params[:tab] == tab.tag ? 'active' : '' %>">
-                   <%=raw link_to tab.name_en.html_safe, root_path%>
+                   <%=raw link_to tab.name.html_safe, root_path%>
                    </li>
                  <%end%>
                  <%if tab.sublinks.first != nil%>
                    <li class="<%= params[:tab] == tab.tag ? 'active' : '' %>">
-                   <%=raw link_to(tab.name_en.html_safe, page_path(tab.sublinks.where(deleted: 0).first.page, :tab => tab.tag))%>
+                   <%=raw link_to(tab.name.html_safe, page_path(tab.sublinks.where(deleted: 0).first.page, :tab => tab.tag))%>
                    </li>
                  <%end%>
                <%end%>
@@ -96,9 +96,9 @@
                  <% current_tab.sublinks.where(deleted: 0).each do |sublink| %>
                    <li class="<%= params[:id].to_i == sublink.page_id ? "active":"" %>">
                    <% if sublink.external_url.blank? %>
-                     <%=raw link_to sublink.title_en, page_path(sublink.page) %>
+                     <%=raw link_to sublink.title, page_path(sublink.page) %>
                    <% else %>
-                     <%=raw link_to sublink.title_en, sublink.external_url, target: "_BLANK" %>
+                     <%=raw link_to sublink.title, sublink.external_url, target: "_BLANK" %>
                    <% end %>
                    </li>
                  <% end %>
@@ -107,12 +107,12 @@
            <% end %>
            <div class="well twitter widget">
              <div class="pull-right">
-               <a href="https://twitter.com/StudPeacePrize" class="twitter-follow-button" data-show-count="false" data-width="160px">Follow @StudPeacePrize</a>
+               <a href="https://twitter.com/StudPeacePrize" class="twitter-follow-button" data-show-count="false" data-width="160px"><%= t('follow') %> @StudPeacePrize</a>
                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
              </div>
              <div id="twitter-box">
                <h1>Twitter</h1>
-               <p>Loading...</p>
+               <p><%= t('loading') %></p>
              </div>
            </div>
            <div class="well facebook widget">
@@ -120,7 +120,7 @@
                <div class="fb-like" data-href="http://facebook.com/studentpeaceprize" data-send="false" data-layout="box_count" data-width="45" data-show-faces="false"></div>
              </div>
              <h1>Facebook</h1>
-             <p>We are on Facebook! Are you? Like us to get the latest updates.</p>
+             <p><%= t('facebook_tagline') %></p>
            </div>
            <div class="promotional">
              <a href="http://www.isfit.org/">
@@ -137,8 +137,8 @@
            <div class="well widget" id="spp-news">
              <h1>Press</h1>
              <div class="spp-article">
-               <h2><%= link_to press.title_en, article_path(press) %></h2>
-               <%= raw format press.ingress_en %>
+               <h2><%= link_to press.title, article_path(press) %></h2>
+               <%= raw format press.ingress %>
              </div>
            </div>
          <% end %>
@@ -149,14 +149,14 @@
        <hr>
        <div class="row">
          <div class="span8">
-           <h1>Partners</h1>
+           <h1><%= t('partners') %></h1>
            <%=link_to image_tag("isfit.png", :alt=>'isfit', :width=>'100'), "http://www.isfit.org", :target=>"_blank"%><br>
            <%=link_to image_tag("saih-logo.gif", :alt=>'SAIH'), "http://www.saih.no", :target=>"_blank"%><br>
            <%=link_to image_tag("logoNSO.jpg", :alt=>'nso'), "http://www.student.no", :target=>"_blank"%>
          </div>
          <div class="span4">
-           <h1>Contact</h1>
-           <p>Editor in Chief<br>
+           <h1><%= t('contact') %></h1>
+           <p><%= t('contact_title') %><br>
            <i class="icon-user"></i> <a href="mailto:bertine@isfit.org">Bertine Tønseth</a><br>
            <i class="icon-signal"></i> <a href="tel:+4748136233">+47 481 36 233</a><br>
            <i class="icon-envelope"></i> <a href="mailto:contact@studentpeaceprize.org">contact@studentpeaceprize.org</a>
