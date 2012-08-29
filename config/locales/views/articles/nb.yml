@@ -1,15 +1,18 @@
 nb:
   create: Opprett
   back: Tilbake
-  about_prize:
-    title: Om prisen
-    paragraph: I over et tiår har Studentenes fredspris vært en måte for studenter fra hele verden å sette fokus på viktig freds- og menneskerettighetsarbeid. Prisen løper ut av Internasjonale Studentfestivalen i Trondheim (ISFiT) og ble først tildelt i 1999. Prisen deles ut på vegne av alle studenter i Norge.
-  nominate:
-    title: Nominér
-    paragraph_one: Studentenes fredspris deles ut hvert andre år, og prosessen med å velge en vinner for 2013 er allerede i gang.
-    paragraph_two: Nominasjonsfristen er satt til <b>første mai, 2012</b>. Send dine nominasjoner til
-  global_truce:
-    title: Global fred
-    paragraph: The Student Peace Prize is proud to announce a collaboration with the internationally renowned organization Peace One Day on creating the world’s largest campaign for peace. The launch of this global campaign will be in London on <em>Monday 27th of February at 3 PM GMT</em>, and will be streamed live through Google+ via Google Hangout.
-  new_article:
-    title: Ny artikkel
+  articles:
+    index:
+      about_prize_title: Om prisen
+      about_prize_paragraph: I mer enn et tiår har Studentenes fredspris jobbet for å støtte studenter over hele verden som gjør et viktig arbeid for å fremme fred, menneskerettigheter og demokrati.
+      nominate_title: Nominér
+      nominate_paragraph_one: Studentenes fredspris deles ut hvert andre år, og prosessen med å velge en vinner for 2013 er allerede i gang.
+      nominate_paragraph_two: Nominasjonsfristen er satt til <b>første mai, 2012</b>. Send dine nominasjoner til
+      global_truce_title: Global fred
+      global_truce_paragraph: Studentenes Fredspris er stolt av å kunne annonsere sitt samarbeid med anerkjente Peace One Day, om å lage verdens største kampanje for fred. Oppstarten på den globale kampanjen blir holdt i London <em>Mandag 27. februar klokken 17</em>, og blir sendt direkte gjennom Google Hangout på Google+.
+    new:
+      title: Ny artikkel
+    show:
+      date: Dato
+      photo: Foto
+      text: Tekst

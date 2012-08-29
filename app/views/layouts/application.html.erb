@@ -75,12 +75,12 @@
                  <% end %>
                  <% if tab.tag == "home"%>
                    <li class="<%= params[:tab] == tab.tag ? 'active' : '' %>">
-                   <%=raw link_to tab.name_en.html_safe, root_path%>
+                   <%=raw link_to tab.name.html_safe, root_path%>
                    </li>
                  <%end%>
                  <%if tab.sublinks.first != nil%>
                    <li class="<%= params[:tab] == tab.tag ? 'active' : '' %>">
-                   <%=raw link_to(tab.name_en.html_safe, page_path(tab.sublinks.where(deleted: 0).first.page, :tab => tab.tag))%>
+                   <%=raw link_to(tab.name.html_safe, page_path(tab.sublinks.where(deleted: 0).first.page, :tab => tab.tag))%>
                    </li>
                  <%end%>
                <%end%>
@@ -100,9 +100,9 @@
                  <% current_tab.sublinks.where(deleted: 0).each do |sublink| %>
                    <li class="<%= params[:id].to_i == sublink.page_id ? "active":"" %>">
                    <% if sublink.external_url.blank? %>
-                     <%=raw link_to sublink.title_en, page_path(sublink.page) %>
+                     <%=raw link_to sublink.title, page_path(sublink.page) %>
                    <% else %>
-                     <%=raw link_to sublink.title_en, sublink.external_url, target: "_BLANK" %>
+                     <%=raw link_to sublink.title, sublink.external_url, target: "_BLANK" %>
                    <% end %>
                    </li>
                  <% end %>
@@ -116,7 +116,7 @@
              </div>
              <div id="twitter-box">
                <h1>Twitter</h1>
-               <p>Loading...</p>
+               <p><%= t('loading') %></p>
              </div>
            </div>
            <div class="well facebook widget">
@@ -141,8 +141,8 @@
            <div class="well widget" id="spp-news">
              <h1>Press</h1>
              <div class="spp-article">
-               <h2><%= link_to press.title_en, article_path(press) %></h2>
-               <%= raw format press.ingress_en %>
+               <h2><%= link_to press.title, article_path(press) %></h2>
+               <%= raw format press.ingress %>
              </div>
            </div>
          <% end %>
@@ -153,7 +153,7 @@
        <hr>
        <div class="row">
          <div class="span8">
-           <h1>Partners</h1>
+           <h1><%= t('partners') %></h1>
            <%=link_to image_tag("isfit.png", :alt=>'isfit', :width=>'100'), "http://www.isfit.org", :target=>"_blank"%><br>
            <%=link_to image_tag("saih-logo.gif", :alt=>'SAIH'), "http://www.saih.no", :target=>"_blank"%><br>
            <%=link_to image_tag("logoNSO.jpg", :alt=>'nso'), "http://www.student.no", :target=>"_blank"%>
