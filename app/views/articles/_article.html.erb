@@ -2,8 +2,8 @@
   <%= link_to article_path(article) do %>
     <%= image_tag article.spp_article_image.url(:front_large) %>
     <div class="carousel-caption">
-      <h1><%= I18n.locale == "en" ? article.title_en : article.title_no %></h1>
-      <p><%= I18n.locale == "en" ? article.ingress_en : article.ingress_no %></p>
+      <h1><%= use_english? ? article.title_en : article.title_no %></h1>
+      <p><%= use_english? ? article.ingress_en : article.ingress_no %></p>
     </div>
   <% end %>
 </div>

@@ -11,7 +11,7 @@
 <%end%>
 
 <%= content_for :title do %>
-  <%= I18n.locale == "en" ? @page.title_en : @page.title_no %>
+  <%= use_english? ? @page.title_en : @page.title_no %>
 <% end %>
 
   <%if @picture%>
@@ -21,8 +21,8 @@
   <% end %>
   <div id="article-header">
     <div class="fb-like pull-right" data-href="<%= request.url %>" data-send="false" data-layout="box_count" data-width="45" data-show-faces="false"></div>
-    <h1><%= I18n.locale == "en" ? @page.title_en : @page.title_no %></h1>
-    <p><%= raw format I18n.locale == "en" ? @page.ingress_en : @page.ingress_no %></p>
+    <h1><%= use_english? ? @page.title_en : @page.title_no %></h1>
+    <p><%= raw format use_english? ? @page.ingress_en : @page.ingress_no %></p>
   </div>
     <div id="article-metadata">
   <span class="byline">
@@ -34,5 +34,5 @@
   </span>
 </div>
 <div id="article-body">
-    <%=raw format(I18n.locale == "en" ? @page.body_en : @page.body_no)%>
+    <%=raw format(use_english? ? @page.body_en : @page.body_no)%>
   </div>

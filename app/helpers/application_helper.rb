@@ -18,11 +18,8 @@ module ApplicationHelper
    end
   end
 
-  def localized(field)
-    if I18n.locale == 'en'
-      return eval("#{field}_en")
-    else
-      return eval("#{field}_no")
-    end
+  def use_english?
+    I18n.locale == "en"
+    logger.debug "use_english? evals to #{I18n.locale == 'en'}"
   end
 end
