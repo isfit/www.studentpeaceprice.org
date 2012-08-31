@@ -27,10 +27,10 @@
     <div id="article-metadata">
   <span class="byline">
     <% if @picture %>
-      <em>Photo:</em> <%= @page.image_text %>
+      <em><%= t('.photo') %>:</em> <%= @page.image_text %>
     <% end %>
-    <em>Created:</em> <%= @page.created_at.strftime("%F") %>
-    <em>Last Updated:</em> <%= @page.updated_at.strftime("%F") %>
+    <em><%= t('.created') %>:</em> <%= @page.created_at.strftime("%F") %>
+    <em><%= t('.updated') %>:</em> <%= @page.updated_at.strftime("%F") %>
   </span>
 </div>
 <div id="article-body">

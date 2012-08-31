@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <title><%= yield :title %>The Student Peace Prize</title>
     <meta name="description" content="The Student Peace Prize is given out every other year on behalf of all students in Norway.">
@@ -28,151 +28,179 @@
     -->
     <script type="text/javascript">
 
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-18016792-2']);
-      _gaq.push(['_trackPageview']);
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-18016792-2']);
+        _gaq.push(['_trackPageview']);
 
-      (function() {
-       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-       })();
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
 
-</script>
-
-
-
-<%= yield :head %>
-   </head>
-
-   <body>
-     <div id="fb-root"></div>
-     <script>(function(d, s, id) {
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) return;
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/nb_NO/all.js#xfbml=1&appId=132392463483362";
-       fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));</script>
-     <div class="container">
-       <div class="row">
-         <div class="span12" id="header">
-           <%= link_to image_tag("logo.png"), root_path %>
-           <div id="tabs" class="pull-right">
-             <% tabs = Tab.find(:all)%>
-             <ul class="nav nav-pills">
-               <% current_tab = nil %>
-               <%if params[:tab] == nil%>
-                 <% params[:tab] = "home" %>
-               <% end %>
-               <% tabs.each do |tab| %>
-                 <% if tab.tag == params[:tab] %>
-                   <% current_tab = tab %>
-                 <% end %>
-                 <% if tab.tag == "home"%>
-                   <li class="<%= params[:tab] == tab.tag ? 'active' : '' %>">
-                   <%=raw link_to use_english? ? tab.name_en.html_safe : tab.name_no.html_safe, root_path%>
-                   </li>
-                 <%end%>
-                 <%if tab.sublinks.first != nil%>
-                   <li class="<%= params[:tab] == tab.tag ? 'active' : '' %>">
-                   <%=raw link_to(use_english? ? tab.name_en.html_safe : tab.name_no.html_safe, page_path(tab.sublinks.where(deleted: 0).first.page, :tab => tab.tag))%>
-                   </li>
-                 <%end%>
-               <%end%>
-             </ul>
-           </div>
-         </div>
-       </div>
-       <div id="main" class="row">
-         <div class="span8" id="content">
-           <%= yield %>
-         </div>
-         <div class="span4" id="sidebar">
-           <% if current_tab.sublinks.where(deleted: 0).count > 1 %>
-             <div class="navigation well widget">
-               <ul class="nav nav-list">
-                 <li class="nav-header">Navigation</li>
-                 <% current_tab.sublinks.where(deleted: 0).each do |sublink| %>
-                   <li class="<%= params[:id].to_i == sublink.page_id ? "active":"" %>">
-                   <% if sublink.external_url.blank? %>
-                     <%=raw link_to use_english? ? sublink.title_en : sublink.title_no, page_path(sublink.page) %>
-                   <% else %>
-                     <%=raw link_to use_english? ? sublink.title_en : sublink.title_no, sublink.external_url, target: "_BLANK" %>
-                   <% end %>
-                   </li>
-                 <% end %>
-               </ul>
-             </div>
-           <% end %>
-           <div class="well twitter widget">
-             <div class="pull-right">
-               <a href="https://twitter.com/StudPeacePrize" class="twitter-follow-button" data-show-count="false" data-width="160px"><%= t('follow') %> @StudPeacePrize</a>
-               <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-             </div>
-             <div id="twitter-box">
-               <h1>Twitter</h1>
-               <p><%= t('loading') %></p>
-             </div>
-           </div>
-           <div class="well facebook widget">
-             <div class="pull-right">
-               <div class="fb-like" data-href="http://facebook.com/studentpeaceprize" data-send="false" data-layout="box_count" data-width="45" data-show-faces="false"></div>
-             </div>
-             <h1>Facebook</h1>
-             <p><%= t('facebook_tagline') %></p>
-           </div>
-           <div class="promotional">
-             <a href="http://www.isfit.org/">
-               <%= image_tag "isfit_logo.png" %>
-             </a>
-           </div>
-           <div class="promotional">
-             <a href="http://www.peaceoneday.org">
-               <%= image_tag "pod_support_logo_400.png" %>
-             </a>
-           </div>
- 
-             <% if press = Article.visible.sorted.where(press_release: 1).first %>
-           <div class="well widget" id="spp-news">
-             <h1>Press</h1>
-             <div class="spp-article">
-               <h2><%= link_to use_english? ? press.title_en : press.title_no, article_path(press) %></h2>
-               <%= raw format use_english? ? press.ingress_en : press.ingress_no %>
-             </div>
-           </div>
-         <% end %>
-         </div>
-       </div>
-     </div> <!-- /container -->
-     <div id="footer" class="container">
-       <hr>
-       <div class="row">
-         <div class="span8">
-           <h1><%= t('partners') %></h1>
-           <%=link_to image_tag("isfit.png", :alt=>'isfit', :width=>'100'), "http://www.isfit.org", :target=>"_blank"%><br>
-           <%=link_to image_tag("saih-logo.gif", :alt=>'SAIH'), "http://www.saih.no", :target=>"_blank"%><br>
-           <%=link_to image_tag("logoNSO.jpg", :alt=>'nso'), "http://www.student.no", :target=>"_blank"%>
-         </div>
-         <div class="span4">
-           <h1><%= t('contact') %></h1>
-           <p><%= t('contact_title') %><br>
-           <i class="icon-user"></i> <a href="mailto:bertine@isfit.org">Bertine Tønseth</a><br>
-           <i class="icon-signal"></i> <a href="tel:+4748136233">+47 481 36 233</a><br>
-           <i class="icon-envelope"></i> <a href="mailto:contact@studentpeaceprize.org">contact@studentpeaceprize.org</a>
-           </p>
-         </div>
-
-       </div>
-     </div>
+    </script>
 
 
-     <!-- Le javascript
-     ================================================== -->
-     <!-- Placed at the end of the document so the pages load faster -->
-     <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' %>
-     <%= javascript_include_tag 'application' %>
-     <%= yield :scripts %>
 
-   </body>
- </html>
+    <%= yield :head %>
+</head>
+
+<body>
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/nb_NO/all.js#xfbml=1&appId=132392463483362";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="container">
+    <div class="row">
+        <div class="span12" id="header">
+            <%= link_to image_tag("logo.png"), root_path %>
+            <div id="tabs" class="pull-right">
+                <% tabs = Tab.find(:all) %>
+                <ul class="nav nav-pills">
+                    <% current_tab = nil %>
+                    <% if params[:tab] == nil %>
+                        <% params[:tab] = "home" %>
+                    <% end %>
+                    <% tabs.each do |tab| %>
+                        <% if tab.tag == params[:tab] %>
+                            <% current_tab = tab %>
+                        <% end %>
+                        <% if tab.tag == "home" %>
+                            <li class="<%= params[:tab] == tab.tag ? 'active' : '' %>">
+                                <%= raw link_to use_english? ? tab.name_en.html_safe : tab.name_no.html_safe, root_path %>
+                            </li>
+                        <% end %>
+                        <% if tab.sublinks.first != nil %>
+                            <li class="<%= params[:tab] == tab.tag ? 'active' : '' %>">
+                                <%= raw link_to(use_english? ? tab.name_en.html_safe : tab.name_no.html_safe, page_path(tab.sublinks.where(deleted: 0).first.page, :tab => tab.tag)) %>
+                            </li>
+                        <% end %>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="main" class="row">
+        <div class="span8" id="content">
+            <%= yield %>
+        </div>
+        <div class="span4" id="sidebar">
+            <% if current_tab.sublinks.where(deleted: 0).count > 1 %>
+                <div class="navigation well widget">
+                    <ul class="nav nav-list">
+                        <li class="nav-header">Navigation</li>
+                        <% current_tab.sublinks.where(deleted: 0).each do |sublink| %>
+                            <li class="<%= params[:id].to_i == sublink.page_id ? "active" :"" %>">
+                                <% if sublink.external_url.blank? %>
+                                    <%= raw link_to use_english? ? sublink.title_en : sublink.title_no, page_path(sublink.page) %>
+                                <% else %>
+                                    <%= raw link_to use_english? ? sublink.title_en : sublink.title_no, sublink.external_url, target: "_BLANK" %>
+                                <% end %>
+                            </li>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
+            <div class="well twitter widget">
+                <div class="pull-right">
+                    <a href="https://twitter.com/StudPeacePrize" class="twitter-follow-button" data-show-count="false" data-width="160px"><%= t('follow') %>
+                        @StudPeacePrize</a>
+                    <script>!function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (!d.getElementById(id)) {
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = "//platform.twitter.com/widgets.js";
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }
+                    }(document, "script", "twitter-wjs");</script>
+                </div>
+                <div id="twitter-box">
+                    <h1>Twitter</h1>
+
+                    <p><%= t('loading') %></p>
+                </div>
+            </div>
+            <div class="well facebook widget">
+                <div class="pull-right">
+                    <div class="fb-like" data-href="http://facebook.com/studentpeaceprize" data-send="false" data-layout="box_count" data-width="45" data-show-faces="false"></div>
+                </div>
+                <h1>Facebook</h1>
+
+                <p><%= t('facebook_tagline') %></p>
+            </div>
+            <div class="promotional">
+                <a href="http://www.isfit.org/">
+                    <%= image_tag "isfit_logo.png" %>
+                </a>
+            </div>
+            <div class="promotional">
+                <a href="http://www.peaceoneday.org">
+                    <%= image_tag "pod_support_logo_400.png" %>
+                </a>
+            </div>
+            <div class="promotional">
+                <a href="http://www.studentpeaceprize.org/nb/" style="padding-left:20px;padding-right: 50px;">
+                    <%= image_tag "flag_norway.png" %> Norsk
+                </a>
+                <a href="http://www.studentpeaceprize.org/en/">
+                    <%= image_tag "flag_united_kingdom.png" %> English
+                </a>
+            </div>
+            <% if press = Article.visible.sorted.where(press_release: 1).first %>
+                <div class="well widget" id="spp-news">
+                    <h1><%= t('press') %></h1>
+
+                    <div class="spp-article">
+                        <h2><%= link_to use_english? ? press.title_en : press.title_no, article_path(press) %></h2>
+                        <%= raw format use_english? ? press.ingress_en : press.ingress_no %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+<!-- /container -->
+<div id="footer" class="container">
+    <hr>
+    <div class="row">
+        <div class="span8">
+            <h1><%= t('partners') %></h1>
+            <%= link_to image_tag("isfit.png", :alt => 'isfit', :width => '100'), "http://www.isfit.org", :target => "_blank" %>
+            <br>
+            <%= link_to image_tag("saih-logo.gif", :alt => 'SAIH'), "http://www.saih.no", :target => "_blank" %>
+            <br>
+            <%= link_to image_tag("logoNSO.jpg", :alt => 'nso'), "http://www.student.no", :target => "_blank" %>
+        </div>
+        <div class="span4">
+            <h1><%= t('contact') %></h1>
+
+            <p><%= t('contact_title') %><br>
+                <i class="icon-user"></i> <a href="mailto:bertine@isfit.org">Bertine Tønseth</a><br>
+                <i class="icon-signal"></i> <a href="tel:+4748136233">+47 481 36 233</a><br>
+                <i class="icon-envelope"></i>
+                <a href="mailto:contact@studentpeaceprize.org">contact@studentpeaceprize.org</a>
+            </p>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' %>
+<%= javascript_include_tag 'application' %>
+<%= yield :scripts %>
+
+</body>
+</html>

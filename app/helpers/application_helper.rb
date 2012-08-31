@@ -19,7 +19,6 @@ module ApplicationHelper
   end
 
   def use_english?
-    logger.debug "use_english? evals to #{I18n.locale == 'en'}"
-    I18n.locale == "en"
+    I18n.locale.to_s == "en"
   end
 end

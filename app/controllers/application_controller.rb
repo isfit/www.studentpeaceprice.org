@@ -14,9 +14,9 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    logger.debug "set_locale"
-    logger.debug params[:locale]
-    logger.debug I18n.locale
+    if (params[:locale].to_s == "no")
+      params[:locale] = :nb
+    end
     I18n.locale = params[:locale] || I18n.default_locale
     logger.debug I18n.locale
   end
