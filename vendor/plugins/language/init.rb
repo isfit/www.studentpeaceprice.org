@@ -1,2 +1,0 @@
-require 'language'
-require 'attribute'

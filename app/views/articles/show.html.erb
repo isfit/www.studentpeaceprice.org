@@ -1,15 +1,15 @@
 <%= content_for :meta do %>
-  <meta property="og:title" content="<%=@article.title %>."/>
+  <meta property="og:title" content="<%=@article.title_en %>."/>
   <meta property="og:type" content="non_profit"/>
   <meta property="og:image" content="<%="http://www.studentpeaceprize.org/images/spp_article_images/"+@article.id.to_s + "_3.jpg"%>"/>
   <meta property="og:url" content="<%=(request.url).match(/([A-Za-z0-9:._\/]+)/)[1]%>"/>          
   <meta property="og:site_name" content="Student Peace Prize"/>
   <meta property="fb:app_id" content="132392463483362"/>
-  <meta property="og:description" content="<%=@article.ingress%>"/>
+  <meta property="og:description" content="<%=@article.ingress_en %>"/>
 <%end%>
 
 <%= content_for :title do %>
-  <%= @article.title + " -" %>
+  <%= I18n.locale == "en" ? @article.title_en : @article.title_no + " -" %>
 <% end %>
 
 <div id="article-media">
@@ -22,8 +22,8 @@
 
 <div id="article-header">
   <div class="fb-like pull-right" data-href="<%= request.url %>" data-send="false" data-layout="box_count" data-width="45" data-show-faces="false"></div>
-  <h1><%= @article.title %></h1>
-  <p><%= @article.ingress %></p>
+  <h1><%= I18n.locale == "en" ? @article.title_en : @article.title_no %></h1>
+  <p><%= I18n.locale == "en" ? @article.ingress_en : @article.ingress_no %></p>
 </div>
 <div id="article-metadata">
   <span class="byline">
@@ -33,7 +33,7 @@
   </span>
 </div>
 <div id="article-body">
-<%=raw format(@article.body)%>
+<%=raw format(I18n.locale == "en" ? @article.body_en : @article.body_no )%>
 </div>
 <%if @article.got_comments %>
   <div class="fb-comments" data-href="<%=request.url %>" data-num-posts="5" data-width="620"></div>

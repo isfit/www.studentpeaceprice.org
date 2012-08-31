@@ -42,9 +42,9 @@
   <div class="span8">
     <hr>
     <% page = Page.find(20) %>
-    <h1><%= link_to page.title_en, page_path(page) %></h1>
-    <p><em><%= page.ingress_en %></em></p>
-    <p><%=raw format page.body_en %></p>
+    <h1><%= link_to I18n.locale == "en" ? page.title_en : page.title_no, page_path(page) %></h1>
+    <p><em><%= I18n.locale == "en" ? page.ingress_en : page.ingress_no %></em></p>
+    <p><%=raw format I18n.locale == "en" ? page.body_en : page.body_no %></p>
   </div>
 </div>
 

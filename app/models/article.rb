@@ -1,6 +1,4 @@
 class Article < ActiveRecord::Base
-  lang_attr :title, :ingress, :body
-
   self.primary_key = :id
 
   scope :visible, where(deleted: 0, visible: 1)

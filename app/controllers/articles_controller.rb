@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   # GET /articles.xml
   def index
     @articles = Article.visible.where(press_release: 0).sorted.limit(5)
-    if Language.to_s =="en"
+    if I18n.locale =="en"
       @articles.reject!{|x| x.title_en.nil? || x.title_en == "" }
     else
       @articles.reject!{|x| x.title_no.nil? || x.title_no == "" }
@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
 
   def index_rest
     @articles = Article.visible.sorted.offset(7)
-    if Language.to_s =="en"
+    if I18n.locale =="en"
       @articles.reject!{|x| x.title_en.nil? || x.title_en == "" }
     else
       @articles.reject!{|x| x.title_no.nil? || x.title_no == "" }

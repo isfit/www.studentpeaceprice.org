@@ -17,4 +17,12 @@ module ApplicationHelper
     #image_tag("bilde#{type}.png",options)
    end
   end
+
+  def localized(field)
+    if I18n.locale == 'en'
+      return eval("#{field}_en")
+    else
+      return eval("#{field}_no")
+    end
+  end
 end
