@@ -43,6 +43,7 @@
     <hr>
     <% page = Page.find(20) %>
     <h1><%= link_to I18n.locale == "en" ? page.title_en : page.title_no, page_path(page) %></h1>
+      <h2><%= I18n.locale %></h2>
     <p><em><%= I18n.locale == "en" ? page.ingress_en : page.ingress_no %></em></p>
     <p><%=raw format I18n.locale == "en" ? page.body_en : page.body_no %></p>
   </div>
