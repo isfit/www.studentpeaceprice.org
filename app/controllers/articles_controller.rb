@@ -11,15 +11,6 @@ class ArticlesController < ApplicationController
       @articles.reject!{|x| x.title_no.nil? || x.title_no == "" }
     end
   end
-
-  def index_rest
-    @articles = Article.visible.sorted.offset(7)
-    if I18n.locale =="en"
-      @articles.reject!{|x| x.title_en.nil? || x.title_en == "" }
-    else
-      @articles.reject!{|x| x.title_no.nil? || x.title_no == "" }
-    end
-  end
  
   # GET /articles/1
   # GET /articles/1.xml
