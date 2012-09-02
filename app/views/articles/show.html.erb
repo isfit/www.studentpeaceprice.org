@@ -2,7 +2,6 @@
   <meta property="og:title" content="<%=@article.title_en %>."/>
   <meta property="og:type" content="non_profit"/>
   <meta property="og:image" content="http://www.studentpeaceprize.org/<%= @article.spp_article_image.url(:front_small) %>"/>
-  <meta property="og:image" content="<%= @article.spp_article_image.url(:front_small) %>"/>
   <meta property="og:url" content="<%=(request.url).match(/([A-Za-z0-9:._\/]+)/)[1]%>"/>          
   <meta property="og:site_name" content="Student Peace Prize"/>
   <meta property="fb:app_id" content="132392463483362"/>
