@@ -138,6 +138,14 @@
                 <p><%= t('facebook_tagline') %></p>
             </div>
             <div class="promotional">
+                <a href="http://www.studentpeaceprize.org/nb/" style="padding-left:20px;padding-right: 50px;">
+                    <%= image_tag "flag_norway.png" %> Norsk
+                </a>
+                <a href="http://www.studentpeaceprize.org/en/">
+                    <%= image_tag "flag_united_kingdom.png" %> English
+                </a>
+            </div>
+            <div class="promotional">
                 <a href="http://www.isfit.org/">
                     <%= image_tag "isfit_logo.png" %>
                 </a>
@@ -145,14 +153,6 @@
             <div class="promotional">
                 <a href="http://www.peaceoneday.org">
                     <%= image_tag "pod_support_logo_400.png" %>
-                </a>
-            </div>
-            <div class="promotional">
-                <a href="http://www.studentpeaceprize.org/nb/" style="padding-left:20px;padding-right: 50px;">
-                    <%= image_tag "flag_norway.png" %> Norsk
-                </a>
-                <a href="http://www.studentpeaceprize.org/en/">
-                    <%= image_tag "flag_united_kingdom.png" %> English
                 </a>
             </div>
             <% if press = Article.visible.sorted.where(press_release: 1).first %>
