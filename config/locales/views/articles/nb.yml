@@ -1,6 +1,9 @@
 nb:
   create: Opprett
   back: Tilbake
+  read_more: Les mer
+  spp: Studentenes Fredspris
+  video_text: "Studentenes Fredspris deles ut hvert andre år, og prosessen med å velge vinneren for 2013 er allerede i gang."
   articles:
     index:
       about_prize_title: Om prisen

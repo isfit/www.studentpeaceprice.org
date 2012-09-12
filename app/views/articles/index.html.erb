@@ -7,7 +7,24 @@
     <meta property="fb:app_id" content="132392463483362"/>
     <meta property="og:description" content="The Student Peace Prize is given out every other year on behalf of all students in Norway.">
 <% end %>
+<%= content_for :main_header do %>
+    <div id="main-header">
 
+        <div class="container hero-unit">
+            <div class="span3">
+                <h1><%= t('spp') %></h1>
+                <p><%= t('video_text') %></p>
+                <p>
+                    <%= link_to t('read_more'), page_path(Page.find(16)), class: "btn btn-primary btn-large" %>
+                </p>
+            </div>
+            <div class="span8">
+                <iframe src="http://player.vimeo.com/video/49128510" width="620" height="348" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+            </div>
+        </div>
+
+    </div>
+<% end %>
 <div class="carousel" id="featured-news">
   <div class="carousel-inner">
     <% @articles.each do |article| %>
