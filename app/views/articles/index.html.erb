@@ -8,60 +8,63 @@
     <meta property="og:description" content="The Student Peace Prize is given out every other year on behalf of all students in Norway.">
 <% end %>
 <%= content_for :main_header do %>
-    <div id="main-header">
+    <div id="main-header" class="container hero-unit">
+        <div class="span3">
+            <h1><%= t('spp') %></h1>
 
-        <div class="container hero-unit">
-            <div class="span3">
-                <h1><%= t('spp') %></h1>
-                <p><%= t('video_text') %></p>
-                <p>
-                    <%= link_to t('read_more'), page_path(Page.find(16)), class: "btn btn-primary btn-large" %>
-                </p>
-            </div>
-            <div class="span8">
-                <iframe src="http://player.vimeo.com/video/49128510" width="620" height="348" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-            </div>
+            <p><%= t('video_text') %></p>
+
+                <%= link_to t('read_more'), page_path(Page.find(16)), class: "btn btn-primary btn-large" %>
+
         </div>
-
+        <div class="span8">
+            <iframe src="http://player.vimeo.com/video/49128510" width="620" height="348" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+        </div>
     </div>
 <% end %>
 <div class="carousel" id="featured-news">
-  <div class="carousel-inner">
-    <% @articles.each do |article| %>
-      <% first = article == @articles.first %>
-      <%= render article, first: first %>
-    <% end %>
-  </div>
-  <a class="carousel-control left" href="#featured-news" data-slide="prev">&lsaquo;</a>
-  <a class="carousel-control right" href="#featured-news" data-slide="next">&rsaquo;</a>
+    <div class="carousel-inner">
+        <% @articles.each do |article| %>
+            <% first = article == @articles.first %>
+            <%= render article, first: first %>
+        <% end %>
+    </div>
+    <a class="carousel-control left" href="#featured-news" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#featured-news" data-slide="next">&rsaquo;</a>
 </div>
 <div class="articles row">
-  <div class="span4">
-  <h1><%= link_to t('.about_prize_title'), page_path(16, tab: "about") %></h1>
-    <p><%= t('.about_prize_paragraph') %></p>
-  </div>
-  <div class="span4">
-    <h1><%= link_to t('.nominate_title'), article_path(7, tab: "about") %></h1>
-    <p><%= t('.nominate_paragraph_one') %></p>
-    <p><%= raw t('.nominate_paragraph_two') %> <%= mail_to "nominations@studentpeaceprize.org" %></p>
-  </div>
+    <div class="span4">
+        <h1><%= link_to t('.about_prize_title'), page_path(16, tab: "about") %></h1>
+
+        <p><%= t('.about_prize_paragraph') %></p>
+    </div>
+    <div class="span4">
+        <h1><%= link_to t('.nominate_title'), article_path(7, tab: "about") %></h1>
+
+        <p><%= t('.nominate_paragraph_one') %></p>
+
+        <p><%= raw t('.nominate_paragraph_two') %> <%= mail_to "nominations@studentpeaceprize.org" %></p>
+    </div>
 </div>
 <div class="pages row">
-  <div class="span8">
-    <hr>
-    <h1><%= link_to t('.global_truce_title'), article_path(9) %></h1>
-    <p><%= raw t('.global_truce_paragraph') %></p>
-    <%= youtube_movie "04SEzifEsGg", "klasse" %>
-  </div>
+    <div class="span8">
+        <hr>
+        <h1><%= link_to t('.global_truce_title'), article_path(9) %></h1>
+
+        <p><%= raw t('.global_truce_paragraph') %></p>
+        <%= youtube_movie "04SEzifEsGg", "klasse" %>
+    </div>
 </div>
 
 <div class="pages row">
-  <div class="span8">
-    <hr>
-    <% page = Page.find(20) %>
-    <h1><%= link_to use_english? ? page.title_en : page.title_no, page_path(page) %></h1>
-    <p><em><%= use_english? ? page.ingress_en : page.ingress_no %></em></p>
-    <p><%=raw format use_english? ? page.body_en : page.body_no %></p>
-  </div>
+    <div class="span8">
+        <hr>
+        <% page = Page.find(20) %>
+        <h1><%= link_to use_english? ? page.title_en : page.title_no, page_path(page) %></h1>
+
+        <p><em><%= use_english? ? page.ingress_en : page.ingress_no %></em></p>
+
+        <p><%= raw format use_english? ? page.body_en : page.body_no %></p>
+    </div>
 </div>
 

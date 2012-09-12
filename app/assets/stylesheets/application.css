@@ -29,14 +29,20 @@ body {
     font-size: 1.2em;
 }
 
-#main-header .hero-unit {
-    padding: 30px 0px 0px 0px;
-    padding-bottom: 30px;
+#main-header.hero-unit {
+    padding: 40px 0px 35px 0px;
     background-color: #E9E7E0;
+}
+#main-header.hero-unit .span3 {
+    padding-left: 20px;
+}
+
+#main-header.hero-unit .btn {
+    margin-top: 110px;
 }
 
 #footer {
-  //background: #001625 url(http://www.isfit.org/assets/footer.png) repeat-x;
+  background: #001625 url(http://www.isfit.org/assets/footer.png) repeat-x;
   padding-top: 20px;
   padding-bottom: 20px;
 }
