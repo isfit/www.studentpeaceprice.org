@@ -13,11 +13,14 @@
             <h1><%= t('spp') %></h1>
 
             <p><%= t('video_text') %></p>
-                <%= link_to t('stream'), "http://www.stv.no/live/student-peace-prize-announcement/", class: "btn btn-primary btn-large" %>
+            <%= link_to t('stream'), "http://www.stv.no/live/student-peace-prize-announcement/", class: "btn btn-primary btn-large" %>
 
         </div>
         <div class="span8">
-            <iframe src="http://player.vimeo.com/video/49128510" width="620" height="348" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+            <%= link_to "http://www.stv.no/live/student-peace-prize-announcement/" do %>
+                <%= image_tag "spp_scene.jpg" %>
+            <% end %>
+
         </div>
     </div>
 <% end %>
