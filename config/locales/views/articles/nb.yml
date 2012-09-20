@@ -2,8 +2,9 @@ nb:
   create: Opprett
   back: Tilbake
   read_more: Les mer
+  stream: Se offentliggjøringen LIVE!
   spp: Studentenes Fredspris
-  video_text: "Studentenes Fredspris deles ut hvert andre år, og førstkommende fredag 21. september klokken 11:00 annonseres vinneren."
+  video_text: "Studentenes Fredspris deles ut hvert andre år, og førstkommende fredag 21. september klokken 11:00 annonseres vinneren. Følg med offentliggjøringen live ved å trykke på linken under!"
   articles:
     index:
       about_prize_title: Om prisen
