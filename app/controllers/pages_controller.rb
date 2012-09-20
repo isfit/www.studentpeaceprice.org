@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  caches_page :all
+  caches_page :index, :show
 
   # GET /pages/1
   # GET /pages/1.xml
