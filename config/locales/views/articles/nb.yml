@@ -1,10 +1,10 @@
 nb:
   create: Opprett
   back: Tilbake
-  read_more: Les mer
-  stream: Se offentliggjøringen LIVE!
+  read_more: Les om vinneren
+  stream: Se opptak av offentliggjøringen
   spp: Studentenes Fredspris
-  video_text: "Studentenes Fredspris deles ut hvert andre år, og førstkommende fredag 21. september klokken 11:00 annonseres vinneren. Følg med offentliggjøringen live ved å trykke på linken under!"
+  video_text: "Studentenes Fredspris ble i år delt ut til Majid Tavakoli (26). Du kan se et opptak av offentliggjøringen i avspilleren til høyre."
   articles:
     index:
       about_prize_title: Om prisen
