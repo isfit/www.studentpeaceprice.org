@@ -6,6 +6,7 @@ WwwStudentpeaceprizeOrg::Application.routes.draw do
     resources :articles do
       collection do
         get :index_rest
+        get :all
       end
     end
   end

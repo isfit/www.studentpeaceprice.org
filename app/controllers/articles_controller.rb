@@ -17,4 +17,8 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
   end
+
+  def all
+    @articles = Article.visible.where(press_release: 0).sorted
+  end
 end

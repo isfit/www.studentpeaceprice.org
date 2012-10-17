@@ -1,0 +1,31 @@
+<%= content_for :meta do %>
+  <meta property="og:title" content="All articles"/>
+  <meta property="og:type" content="non_profit"/>
+  <meta property="og:url" content="<%=(request.url).match(/([A-Za-z0-9:._\/]+)/)[1]%>"/>          
+  <meta property="og:site_name" content="Student Peace Prize"/>
+  <meta property="fb:app_id" content="132392463483362"/>
+  <meta property="og:description" content="All articles"/>
+<%end%>
+
+<% @articles.each do |article| %>
+
+<%= content_for :title do %>
+  <%= use_english? ? article.title_en : article.title_no + " -" %>
+<% end %>
+
+<div id="article-header">
+  <div class="fb-like pull-right" data-href="<%= request.url %>" data-send="false" data-layout="box_count" data-width="45" data-show-faces="false"></div>
+  <h1><%= link_to use_english? ? article.title_en : article.title_no, article_path(article.id) %></h1>
+  <p><%= use_english? ? article.ingress_en : article.ingress_no %> </p>
+</div>
+<div id="article-metadata">
+  <span class="byline">
+    <em><%= t('.text') %>:</em> <%= article.byline %>
+    <em><%= t('.photo') %>:</em> <%= article.image_text %>
+    <em><%= t('.date') %>:</em> <%= article.created_at.strftime("%F") %>
+  </span>
+</div>
+<%if @articles.last != article %>
+<br />
+<%end%>
+<%end%>
