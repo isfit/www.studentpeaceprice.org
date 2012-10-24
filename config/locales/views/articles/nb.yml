@@ -5,6 +5,10 @@ nb:
   stream: Se opptak av offentliggjøringen
   spp: Studentenes Fredspris
   video_text: "Studentenes Fredspris ble i år delt ut til Majid Tavakoli (26). Du kan se et opptak av offentliggjøringen i avspilleren til høyre."
+  will_paginate:
+    previous_label: "Forrige"
+    next_label: "Neste"
+  all_page_title: "Alle artikler - "
   articles:
     index:
       about_prize_title: Om prisen

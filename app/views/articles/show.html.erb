@@ -38,3 +38,4 @@
 <%if @article.got_comments %>
   <div class="fb-comments" data-href="<%=request.url %>" data-num-posts="5" data-width="620"></div>
 <%end%>
+<%= link_to "Til alle artikler", all_articles_path, class: "btn btn-primary" %>

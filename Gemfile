@@ -6,6 +6,8 @@ gem 'mysql2'
 gem "bluecloth"
 gem 'paperclip'
 gem 'newrelic_rpm'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 
 # Gems used only for assets and not required
 # in production environments by default.

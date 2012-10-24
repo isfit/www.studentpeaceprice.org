@@ -5,6 +5,10 @@ en:
   read_more: Read about the winner
   stream: Watch the announcment video
   video_text: "The Student Peace Prize of 2013 was awarded to the Iranian student leader Majid Tavakoli. The winner was announced in the main library at NTNU on Friday, UN’s International Day of Peace. Watch a recording of the event in the video player."
+  all_page_title: "All articles - "
+  will_paginate:
+    previous_label: "Previous"
+    next_label: "Next"
   articles:
     index:
       about_prize_title: "About the Prize"

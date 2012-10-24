@@ -19,6 +19,6 @@ class ArticlesController < ApplicationController
   end
 
   def all
-    @articles = Article.visible.where(press_release: 0).sorted
+    @articles = Article.visible.where(press_release: 0).sorted.paginate(:page => params[:page], :per_page => 5)
   end
 end
