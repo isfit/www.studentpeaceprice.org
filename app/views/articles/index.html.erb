@@ -8,19 +8,20 @@
     <meta property="og:description" content="The Student Peace Prize is given out every other year on behalf of all students in Norway.">
 <% end %>
 <%= content_for :main_header do %>
-    <div id="main-header" class="container hero-unit">
-        <div class="span3">
-            <h1><%= t('stream') %></h1>
+    <% if not use_english? %>
+        <div id="main-header" class="container hero-unit">
+            <div class="span4">
+                <h1><%= t('stream') %></h1>
 
-            <p><%= t('video_text') %></p>
-            <%= link_to t('read_more'), page_path(37 ,tab: "laureates"), class: "btn btn-primary btn-large" %>
+                <p><%= t('video_text') %></p>
+                <%= link_to "Nominer din hverdagshelt!", page_path(38 ,tab: "laureates"), class: "btn btn-primary btn-large" %>
 
+            </div>
+            <div class="span7">
+              <a href="<%= page_path(38, tab:"home")%>"><img src="http://i.imgur.com/BSngF.png" alt="hverdagshelt"></a>
+            </div>
         </div>
-        <div class="span8">
-          <iframe title="IframeTitle" width="600" height="350"
-                src="http://www.stv.no/embed/8752/" frameborder="0" allowfullscreen scrolling=no></iframe>
-        </div>
-    </div>
+    <% end %>
 <% end %>
 <div class="carousel" id="featured-news">
     <div class="carousel-inner">

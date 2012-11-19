@@ -2,9 +2,11 @@ nb:
   create: Opprett
   back: Tilbake
   read_more: Les om vinneren
-  stream: Se opptak av offentliggjøringen
+  stream: Hvem er din hverdagshelt?
   spp: Studentenes Fredspris
-  video_text: "Studentenes Fredspris ble i år delt ut til Majid Tavakoli (26). Du kan se et opptak av offentliggjøringen i avspilleren til høyre."
+  video_text:  |
+    Kjenner du noen som får hverdagen din til å skinne litt ekstra? Spanderer hun kaffe? Er han motoren
+    i linjeforeningen? Skal hun redde verden?
   will_paginate:
     previous_label: "Forrige"
     next_label: "Neste"
