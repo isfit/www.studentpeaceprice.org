@@ -111,24 +111,23 @@
                 </div>
             <% end %>
             <div class="well twitter widget">
-                <div class="pull-right">
-                    <a href="https://twitter.com/StudPeacePrize" class="twitter-follow-button" data-show-count="false" data-width="160px" data-widget-id="288674412125888513"><%= t('follow') %>
-                        @StudPeacePrize</a>
-                    <script>!function (d, s, id) {
-                        var js, fjs = d.getElementsByTagName(s)[0];
-                        if (!d.getElementById(id)) {
-                            js = d.createElement(s);
-                            js.id = id;
-                            js.src = "//platform.twitter.com/widgets.js";
-                            fjs.parentNode.insertBefore(js, fjs);
-                        }
-                    }(document, "script", "twitter-wjs");</script>
-                </div>
-                <div id="twitter-box">
-                    <h1>Twitter</h1>
 
-                    <p><%= t('loading') %></p>
-                </div>
+              <div class="pull-right">
+
+                <a href="https://twitter.com/StudPeacePrize" class="twitter-follow-button" data-show-count="false" data-width="160px"><%= t('follow') %> @StudPeacePrize</a>
+
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+              </div>
+
+              <div id="twitter-box">
+
+                <h1>Twitter</h1>
+
+                <p><%= t('loading') %></p>
+
+              </div>
+
             </div>
             <div class="well facebook widget">
                 <div class="pull-right">
