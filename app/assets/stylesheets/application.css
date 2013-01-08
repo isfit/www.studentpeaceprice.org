@@ -93,7 +93,7 @@ body {
 .twitter {
   background-color: #E9E7E0;
   margin-bottom: 15px;
-  height: 200px;
+  height: 350px;
 }
 
 .twitter p {
@@ -103,6 +103,10 @@ body {
 
 .twitter small {
   font-size: 0.8em;
+}
+
+.twitter iframe {
+  width: 260px;
 }
 
 .facebook {
