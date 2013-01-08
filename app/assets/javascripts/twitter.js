@@ -59,6 +59,6 @@ function cycleTwitter() {
 }
 
 $(function() {
-  getTwitterFeed();
+  //getTwitterFeed();
   setInterval(cycleTwitter,7500);
 });
