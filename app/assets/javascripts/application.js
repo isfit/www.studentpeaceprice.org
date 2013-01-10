@@ -3,12 +3,15 @@
 // be included in the compiled file accessible from http://example.com/assets/application.js
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
-//
-//= require bootstrap.min
-//= require twitter
+// 
+//= require jquery-1.8.2.js
+//= require bootstrap.js
+//= require isotope.js
+//= require flexslider.js
+//= require carousel.js
+//= require jquery.cslider.js
+//= require slider.js
+//= require fancybox.js
+//= require custom.js
 //= require_self
-$(function() {
-  $('.carousel').carousel({
-    interval: 10000
-  });
-});
+

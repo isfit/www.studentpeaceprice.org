@@ -1,62 +1,171 @@
 <%= content_for :meta do %>
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="http://www.studentpeaceprize.org/assets/logo-fredspris.png">
-    <meta property="og:url" content="http://www.studentpeaceprize.org/">
-    <meta property="og:title" content="The Student Peace Prize">
-    <meta property="og:site_name" content="Student Peace Prize"/>
-    <meta property="fb:app_id" content="132392463483362"/>
-    <meta property="og:description" content="The Student Peace Prize is given out every other year on behalf of all students in Norway.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="http://www.studentpeaceprize.org/assets/logo-fredspris.png">
+  <meta property="og:url" content="http://www.studentpeaceprize.org/">
+  <meta property="og:title" content="The Student Peace Prize">
+  <meta property="og:site_name" content="Student Peace Prize"/>
+  <meta property="fb:app_id" content="132392463483362"/>
+  <meta property="og:description" content="The Student Peace Prize is given out every other year on behalf of all students in Norway.">
 <% end %>
 <%= content_for :main_header do %>
-    <% if false %>
-        <div id="main-header" class="container hero-unit">
-            <div class="span4">
-                <h1><%= t('stream') %></h1>
+  <% if false %>
+    <div id="main-header" class="container hero-unit">
+      <div class="span4">
+        <h1><%= t('stream') %></h1>
 
-                <p><%= t('video_text') %></p>
-                <%= link_to "Nominer din hverdagshelt!", page_path(38 ,tab: "laureates"), class: "btn btn-primary btn-large" %>
+        <p><%= t('video_text') %></p>
+        <%= link_to "Nominer din hverdagshelt!", page_path(38 ,tab: "laureates"), class: "btn btn-primary btn-large" %>
 
-            </div>
-            <div class="span7">
-              <a href="<%= page_path(38, tab:"home")%>"><img src="http://i.imgur.com/BSngF.png" alt="hverdagshelt"></a>
-            </div>
-        </div>
-    <% end %>
+      </div>
+      <div class="span7">
+        <a href="<%= page_path(38, tab:"home")%>"><img src="http://i.imgur.com/BSngF.png" alt="hverdagshelt"></a>
+      </div>
+    </div>
+  <% end %>
 <% end %>
-<div class="carousel" id="featured-news">
-    <div class="carousel-inner">
-        <% @articles.each do |article| %>
-            <% first = article == @articles.first %>
-            <%= render article, first: first %>
-        <% end %>
-    </div>
-    <a class="carousel-control left" href="#featured-news" data-slide="prev">&lsaquo;</a>
-    <a class="carousel-control right" href="#featured-news" data-slide="next">&rsaquo;</a>
+<!-- start: Slider -->
+<div class="slider-wrapper">
+
+  <div id="da-slider" class="da-slider">
+
+    <% @articles.each do |article| %>
+      <%= render article %>
+    <% end %>
+
+    <nav class="da-arrows">
+    <span class="da-arrows-prev"></span>
+    <span class="da-arrows-next"></span>
+    </nav>
+  </div>
+
 </div>
-<div class="articles row">
-    <div class="span4">
-        <h1><%= link_to t('.about_prize_title'), page_path(16, tab: "about") %></h1>
+<!-- end: Slider -->
 
-        <p><%= t('.about_prize_paragraph') %></p>
+<!--start: Wrapper-->
+<div id="wrapper">
+
+  <!--start: Container -->
+  <div class="container">
+
+    <hr>
+
+    <!-- start: Row -->
+    <div class="row">
+
+      <!-- start: Icon Boxes -->
+      <div class="icons-box-vert-container">
+
+        <!-- start: Icon Box Start -->
+        <div class="span4">
+          <div class="icons-box-vert">
+            <i class="ico-ok ico-white circle-color-full"></i>
+            <div class="icons-box-vert-info">
+              <h3><%= link_to t('.about_prize_title'), page_path(16, tab: "about") %></h3>
+              <p><%= t('.about_prize_paragraph') %></p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <!-- end: Icon Box-->
+
+        <!-- start: Icon Box Start -->
+        <div class="span4">
+          <div class="icons-box-vert">
+            <i class="ico-ipad ico-white circle-color-full"></i>
+            <div class="icons-box-vert-info">
+              <h3><%= link_to t('.nominate_title'), article_path(7, tab: "about") %></h3>
+              <p><%= t('.nominate_paragraph_one') %></p>
+              <p><%= raw t('.nominate_paragraph_two') %> <%= mail_to "nominations@studentpeaceprize.org" %></p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <!-- end: Icon Box -->
+
+        <!-- start: Icon Box Start -->
+        <div class="span4">
+          <div class="icons-box-vert">
+            <i class="ico-cup  ico-white circle-color-full"></i>
+            <div class="icons-box-vert-info">
+              <h3>Winner 2013</h3>
+              <p>Majid Tavakoli vant årets fredspris</p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <!-- end: Icon Box -->
+
+      </div>
+      <!-- end: Icon Boxes -->
+      <div class="clear"></div>
     </div>
-    <div class="span4">
-        <h1><%= link_to t('.nominate_title'), article_path(7, tab: "about") %></h1>
+    <!-- end: Row -->
+    <!-- start: Row -->
+    <div class="row">
 
-        <p><%= t('.nominate_paragraph_one') %></p>
-
-        <p><%= raw t('.nominate_paragraph_two') %> <%= mail_to "nominations@studentpeaceprize.org" %></p>
-    </div>
-</div>
-
-<div class="pages row">
-    <div class="span8">
-        <hr>
+      <div class="span9">
         <% page = Page.find(20) %>
-        <h1><%= link_to use_english? ? page.title_en : page.title_no, page_path(page) %></h1>
+        <div class="title"><h3>Walk of Peace</h3></div>
+        <!-- start: Post -->
+        <div class="post">
+          <div class="post-content">
+            <div class="post-description">
+              <p><%= raw format use_english? ? page.body_en : page.body_no %></p>
+            </div>
+          </div>
+        </div>
+        <!-- end: Post -->
+      </div>
+      <div class="span3">
+        <!-- start: Testimonials-->
 
-        <p><em><%= use_english? ? page.ingress_en : page.ingress_no %></em></p>
+        <div class="testimonial-container">
 
-        <p><%= raw format use_english? ? page.body_en : page.body_no %></p>
+          <div class="title"><h3>Twitter</h3></div>
+
+          <div class="testimonials-carousel" data-autorotate="3000">
+
+            <ul class="carousel">
+
+              <li class="testimonial">
+              <div class="testimonials">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+              <div class="testimonials-bg"></div>
+              <div class="testimonials-author">Lucas Luck, <span>@lucas</span></div>
+              </li>
+
+              <li class="testimonial">
+              <div class="testimonials">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </div>
+              <div class="testimonials-bg"></div>
+              <div class="testimonials-author">Lucas Luck, <span>CTO</span></div>
+              </li>
+
+              <li class="testimonial">
+              <div class="testimonials">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+              <div class="testimonials-bg"></div>
+              <div class="testimonials-author">Lucas Luck, <span>COO</span></div>
+              </li>
+
+              <li class="testimonial">
+              <div class="testimonials">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+              <div class="testimonials-bg"></div>
+              <div class="testimonials-author">Lucas Luck, <span>CMO</span></div>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        <!-- end: Testimonials-->
+
+      </div>
+      <div class="clear"></div>
     </div>
+    <hr>
+  </div>
+  <!--end: Container-->
+
 </div>
+<!-- end: Wrapper  -->	
 

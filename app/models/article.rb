@@ -11,6 +11,6 @@ class Article < ActiveRecord::Base
       front_small: {geometry: "220x131#", processors: [:cropper_half]},
       article: {geometry: "447x346#", processors: [:cropper_spp_one_third]}
   },
-                    url: "/system/spp_articles/:attachment/:id_partition/:style/:filename",
+                    url: "http://www.studentpeaceprize.org/system/spp_articles/:attachment/:id_partition/:style/:filename",
                     path: ":rails_root/public/system/spp_articles/:attachment/:id_partition/:style/:filename"
 end

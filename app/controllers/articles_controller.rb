@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
 
+  before_filter :load_tabs
+
   respond_to :html, :xml
   # GET /articles
   # GET /articles.xml
@@ -20,5 +22,12 @@ class ArticlesController < ApplicationController
 
   def all
     @articles = Article.visible.where(press_release: 0).sorted.paginate(:page => params[:page], :per_page => 5)
+  end
+
+  def load_tabs
+    if params[:tab].nil? then params[:tab]="home" end
+    @tabs = Tab.all
+    @tabs.reject!{|tab|tab.sublinks.nil? || tab.sublinks.first.nil?}
+    @current_tab = @tabs.find_by_tag(params[:tab])
   end
 end

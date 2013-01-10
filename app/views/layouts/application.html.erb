@@ -12,12 +12,17 @@
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <%= stylesheet_link_tag("styleie9.css") %>
     <![endif]-->
 
     <!-- Le styles -->
     <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=PT+Sans:700|PT+Serif:400,700,400italic" %>
     <%= yield :styles %>
     <%= stylesheet_link_tag 'application' %>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Economica:700,400italic">
 
     <!-- Le fav and touch icons -->
     <!--
@@ -26,75 +31,43 @@
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
     -->
-    <script type="text/javascript">
+    <%= yield :head %>
+  </head>
 
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-18016792-2']);
-      _gaq.push(['_trackPageview']);
+  <body>
+    <!--start: Header -->
+    <header>
 
-      (function () {
-       var ga = document.createElement('script');
-       ga.type = 'text/javascript';
-       ga.async = true;
-       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-       var s = document.getElementsByTagName('script')[0];
-       s.parentNode.insertBefore(ga, s);
-       })();
+    <!--start: Container -->
+    <div class="container">
 
-</script>
-
-
-
-<%= yield :head %>
-</head>
-
-<body>
-  <div id="fb-root"></div>
-  <script>(function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s);
-    js.id = id;
-    js.src = "//connect.facebook.net/nb_NO/all.js#xfbml=1&appId=132392463483362";
-    fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-  <div class="container">
-    <div class="row">
-      <div class="span12" id="header">
-        <%= link_to image_tag("logo.png"), root_path %>
-        <div id="tabs" class="pull-right">
-          <% tabs = Tab.find(:all) %>
-          <ul class="nav nav-pills">
-            <% current_tab = nil %>
-            <% if params[:tab] == nil %>
-              <% params[:tab] = "home" %>
-            <% end %>
-            <% tabs.each do |tab| %>
-              <% if tab.tag == params[:tab] %>
-                <% current_tab = tab %>
-              <% end %>
-              <% if tab.tag == "home" %>
-                <li class="<%= params[:tab] == tab.tag ? 'active' : '' %>">
-                <%= raw link_to use_english? ? tab.name_en.html_safe : tab.name_no.html_safe, root_path %>
-                </li>
-              <% end %>
-              <% if tab.sublinks.first != nil %>
-                <li class="<%= params[:tab] == tab.tag ? 'active' : '' %>">
+      <!--start: Navbar -->
+      <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="index.html"><%= image_tag "logo-fredspris.png" %> The <span>Student Peace Prize</span>.</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">           
+              <% Tab.all.each do |tab| %>
+                <li>
                 <%= raw link_to(use_english? ? tab.name_en.html_safe : tab.name_no.html_safe, page_path(tab.sublinks.where(deleted: 0).first.page, :tab => tab.tag)) %>
                 </li>
               <% end %>
-            <% end %>
-          </ul>
+            </ul>
+          </div>
         </div>
       </div>
+      <!--end: Navbar -->
     </div>
-    <%= yield :main_header %>
-    <div id="main" class="row">
-      <div class="span8" id="content">
-        <%= yield %>
-      </div>
-      <div class="span4" id="sidebar">
-        <% if current_tab.sublinks.where(deleted: 0).count > 1 %>
+    <!--end: Container-->			
+
+    </header>
+    <!--end: Header-->
+            <% if current_tab.sublinks.where(deleted: 0).count > 1 %>
           <div class="navigation well widget">
             <ul class="nav nav-list">
               <li class="nav-header">Navigation</li>
@@ -110,87 +83,162 @@
             </ul>
           </div>
         <% end %>
-        <div class="well twitter widget">
 
-          <div class="pull-right">
+    <%= yield :main_header %>
+    <%= yield %>
+    <!-- /container -->
 
-            <a class="twitter-timeline" href="https://twitter.com/StudPeacePrize" data-widget-id="288674412125888513">Tweets by @StudPeacePrize</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-          </div>
+    <!-- start: Footer Menu -->
+    <div id="footer-menu" class="hidden-tablet hidden-phone">
 
-        </div>
-        <div class="well facebook widget">
-          <div class="pull-right">
-            <div class="fb-like" data-href="http://facebook.com/studentpeaceprize" data-send="false" data-layout="box_count" data-width="45" data-show-faces="false"></div>
-          </div>
-          <h1>Facebook</h1>
+      <!-- start: Container -->
+      <div class="container">
 
-          <p><%= t('facebook_tagline') %></p>
-        </div>
-        <div class="promotional">
-          <a href="http://www.studentpeaceprize.org/nb/" style="padding-left:20px;padding-right: 50px;">
-            <%= image_tag "flag_norway.png" %> Norsk
-          </a>
-          <a href="http://www.studentpeaceprize.org/en/">
-            <%= image_tag "flag_united_kingdom.png" %> English
-          </a>
-        </div>
-        <div class="promotional">
-          <a href="http://www.isfit.org/">
-            <%= image_tag "isfit_logo.png" %>
-          </a>
-        </div>
-        <div class="promotional">
-          <a href="http://www.peaceoneday.org">
-            <%= image_tag "pod_support_logo_400.png" %>
-          </a>
-        </div>
-        <% if press = Article.visible.sorted.where(press_release: 1).first %>
-          <div class="well widget" id="spp-news">
-            <h1><%= t('press') %></h1>
+        <!-- start: Row -->
+        <div class="row">
 
-            <div class="spp-article">
-              <h2><%= link_to use_english? ? press.title_en : press.title_no, article_path(press) %></h2>
-              <%= raw format use_english? ? press.ingress_en : press.ingress_no %>
+          <!-- start: Footer Menu Logo -->
+          <div class="span4">
+            <div id="footer-menu-logo">
+              <a class="brand" href="index.html"><%= image_tag "logo-fredspris.png" %> The <span>Student Peace Prize</span>.</a>
             </div>
           </div>
-        <% end %>
+          <!-- end: Footer Menu Logo -->
+
+          <!-- start: Footer Menu Links-->
+          <div class="span7">
+
+            <div id="footer-menu-links">
+
+              <ul id="footer-nav">
+
+              <li><a href="#">Hjem</a></li>
+              <li><a href="about.html">Om prisen</a></li>
+              <li><a href="about.html">Vinnerne</a></li>
+              <li><a href="about.html">Komitéene</a></li>
+              <li><a href="about.html">Presse</a></li>
+              <li><a href="about.html">Kontakt</a></li>
+
+              </ul>
+
+            </div>
+
+          </div>
+          <!-- end: Footer Menu Links-->
+
+          <!-- start: Footer Menu Back To Top -->
+          <div class="span1">
+
+            <div id="footer-menu-back-to-top">
+              <a href="#"></a>
+            </div>
+
+          </div>
+          <!-- end: Footer Menu Back To Top -->
+
+        </div>
+        <!-- end: Row -->
+
       </div>
+      <!-- end: Container  -->	
+
+    </div>	
+    <!-- end: Footer Menu -->
+
+    <!-- start: Footer -->
+    <div id="footer">
+
+      <!-- start: Container -->
+      <div class="container">
+
+        <!-- start: Row -->
+        <div class="row">
+
+          <!-- start: About -->
+          <div class="span2">
+
+            <h3>About Us</h3>
+            <p>
+            I mer enn et tiår har Studentenes fredspris jobbet for å støtte studenter over hele verden som gjør et viktig arbeid for å fremme fred, menneskerettigheter og demokrati.
+            </p>
+
+          </div>
+          <!-- end: About -->
+
+          <!-- start: Photo Stream -->
+          <div class="span2">
+
+            <h3><%= t('contact') %></h3>
+
+            <p><%= t('contact_title') %><br>
+            <i class="icon-user"></i> <a href="mailto:bertine@isfit.org">Bertine Tønseth</a><br>
+            <i class="icon-signal"></i> <a href="tel:+4748136233">+47 481 36 233</a><br>
+            <i class="icon-envelope"></i>
+            <a href="mailto:contact@studentpeaceprize.org">contact@studentpeaceprize.org</a>
+            </p>
+
+          </div>
+          <!-- end: Photo Stream -->
+
+          <div class="span3">
+
+            <!-- start: Follow Us -->
+            <h3>Follow Us!</h3>
+            <ul class="social-grid">
+              <li>
+              <div class="social-item">				
+                <div class="social-info-wrap">
+                  <div class="social-info">
+                    <div class="social-info-front social-twitter">
+                      <a href="http://twitter.com"></a>
+                    </div>
+                    <div class="social-info-back social-twitter-hover">
+                      <a href="http://twitter.com"></a>
+                    </div>	
+                  </div>
+                </div>
+              </div>
+              </li>
+              <li>
+              <div class="social-item">				
+                <div class="social-info-wrap">
+                  <div class="social-info">
+                    <div class="social-info-front social-facebook">
+                      <a href="http://facebook.com"></a>
+                    </div>
+                    <div class="social-info-back social-facebook-hover">
+                      <a href="http://facebook.com"></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </li>
+            </ul>
+            <!-- end: Follow Us -->
+          </div>
+          <!-- start: Partners -->
+          <div class="span5">
+            <h3><%= t('partners') %></h3>
+            <%= link_to image_tag("isfit.png", :alt => 'isfit', :width => '100'), "http://www.isfit.org", :target => "_blank" %>
+            <%= link_to image_tag("saih-logo.gif", :alt => 'SAIH'), "http://www.saih.no", :target => "_blank" %>
+            <%= link_to image_tag("logoNSO.jpg", :alt => 'nso'), "http://www.student.no", :target => "_blank" %>
+          </div>
+          <!-- end: Partners -->
+        </div>
+        <!-- end: Row -->	
+
+      </div>
+      <!-- end: Container  -->
+
     </div>
-  </div>
-  <!-- /container -->
-  <div id="footer" class="container">
-    <hr>
-    <div class="row">
-      <div class="span8">
-        <h1><%= t('partners') %></h1>
-        <%= link_to image_tag("isfit.png", :alt => 'isfit', :width => '100'), "http://www.isfit.org", :target => "_blank" %>
-        <br>
-        <%= link_to image_tag("saih-logo.gif", :alt => 'SAIH'), "http://www.saih.no", :target => "_blank" %>
-        <br>
-        <%= link_to image_tag("logoNSO.jpg", :alt => 'nso'), "http://www.student.no", :target => "_blank" %>
-      </div>
-      <div class="span4">
-        <h1><%= t('contact') %></h1>
-
-        <p><%= t('contact_title') %><br>
-        <i class="icon-user"></i> <a href="mailto:bertine@isfit.org">Bertine Tønseth</a><br>
-        <i class="icon-signal"></i> <a href="tel:+4748136233">+47 481 36 233</a><br>
-        <i class="icon-envelope"></i>
-        <a href="mailto:contact@studentpeaceprize.org">contact@studentpeaceprize.org</a>
-        </p>
-      </div>
-
-    </div>
-  </div>
+    <!-- end: Footer -->
 
 
-  <!-- Le javascript
-  ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' %>
-  <%= javascript_include_tag 'application' %>
-  <%= yield :scripts %>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%= javascript_include_tag 'application' %>
+    <%= yield :scripts %>
 
-</body>
+  </body>
 </html>
