@@ -52,10 +52,10 @@
           <a class="brand" href="index.html"><%= image_tag "logo-fredspris.png" %> The <span>Student Peace Prize</span>.</a>
           <div class="nav-collapse collapse">
             <ul class="nav">           
-              <% Tab.all.each do |tab| %>
-                <li>
-                <%= raw link_to(use_english? ? tab.name_en.html_safe : tab.name_no.html_safe, page_path(tab.sublinks.where(deleted: 0).first.page, :tab => tab.tag)) %>
-                </li>
+              <% cache do %>
+                <% Tab.all.each do |tab| %>
+                  <%= render 'layouts/tab', tab: tab %>
+                <% end %>
               <% end %>
             </ul>
           </div>
@@ -67,23 +67,6 @@
 
     </header>
     <!--end: Header-->
-            <% if current_tab.sublinks.where(deleted: 0).count > 1 %>
-          <div class="navigation well widget">
-            <ul class="nav nav-list">
-              <li class="nav-header">Navigation</li>
-              <% current_tab.sublinks.where(deleted: 0).each do |sublink| %>
-                <li class="<%= params[:id].to_i == sublink.page_id ? "active" :"" %>">
-                <% if sublink.external_url.blank? %>
-                  <%= raw link_to use_english? ? sublink.title_en : sublink.title_no, page_path(sublink.page) %>
-                <% else %>
-                  <%= raw link_to use_english? ? sublink.title_en : sublink.title_no, sublink.external_url, target: "_BLANK" %>
-                <% end %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-
     <%= yield :main_header %>
     <%= yield %>
     <!-- /container -->
@@ -111,7 +94,6 @@
             <div id="footer-menu-links">
 
               <ul id="footer-nav">
-
               <li><a href="#">Hjem</a></li>
               <li><a href="about.html">Om prisen</a></li>
               <li><a href="about.html">Vinnerne</a></li>

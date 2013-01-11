@@ -3,8 +3,6 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   helper :all
 
-  @side_quote = Quote.where(:side=>true).order('quotes.weight DESC').last
-  @top_quote = Quote.where(:top=>true).order('quotes.weight DESC').last
 
   protect_from_forgery
 

@@ -8,6 +8,7 @@ gem 'paperclip'
 gem 'newrelic_rpm'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+gem "squeel"
 
 # Gems used only for assets and not required
 # in production environments by default.
