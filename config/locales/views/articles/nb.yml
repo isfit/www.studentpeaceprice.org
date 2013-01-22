@@ -5,8 +5,7 @@ nb:
   stream: Hvem er din hverdagshelt?
   spp: Studentenes Fredspris
   video_text:  |
-    Kjenner du noen som får hverdagen din til å skinne litt ekstra? Spanderer hun kaffe? Er han motoren
-    i linjeforeningen? Skal hun redde verden?
+    Du kan nå stemme frem trondheimsstudentenes hverdagshelt!
   will_paginate:
     previous_label: "Forrige"
     next_label: "Neste"

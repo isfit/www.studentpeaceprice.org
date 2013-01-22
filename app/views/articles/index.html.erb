@@ -8,13 +8,13 @@
     <meta property="og:description" content="The Student Peace Prize is given out every other year on behalf of all students in Norway.">
 <% end %>
 <%= content_for :main_header do %>
-    <% if false %>
+    <% if I18n.locale.to_s == "nb" %>
         <div id="main-header" class="container hero-unit">
             <div class="span4">
                 <h1><%= t('stream') %></h1>
-
+ 
                 <p><%= t('video_text') %></p>
-                <%= link_to "Nominer din hverdagshelt!", page_path(38 ,tab: "laureates"), class: "btn btn-primary btn-large" %>
+                <%= link_to "Stem!", article_path(25 ,tab: "laureates"), class: "btn btn-primary btn-large" %>
 
             </div>
             <div class="span7">
