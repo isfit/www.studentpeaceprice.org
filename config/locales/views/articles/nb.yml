@@ -12,12 +12,13 @@ nb:
   all_page_title: "Alle artikler - "
   articles:
     index:
-      about_prize_title: Om prisen
-      about_prize_paragraph: I mer enn et tiår har Studentenes fredspris jobbet for å støtte studenter over hele verden som gjør et viktig arbeid for å fremme fred, menneskerettigheter og demokrati.
-      nominate_title: Majid Tavakoli
-      nominate_paragraph: Vinneren av Studentenes fredspris 2013 tildeles Majid Tavakoli. Han er en iransk student, som for tiden soner en ni år lang fengselsstraff for sin kritikk av det iranske regimet og sin kamp for demokratisering og menneskerettigheter gjennom taler og publikasjoner.
-      global_truce_title: Global Truce
-      global_truce_paragraph: Studentenes Fredspris er stolt av å kunne annonsere sitt samarbeid med anerkjente Peace One Day, om å lage verdens største kampanje for fred. Oppstarten på den globale kampanjen blir holdt i London <em>Mandag 27. februar klokken 17</em>, og blir sendt direkte gjennom Google Hangout på Google+.
+      about_paragraph_left_title: "Om prisen"
+      about_paragraph_left_body: "I mer enn et tiår har Studentenes fredspris jobbet for å støtte studenter over hele verden som gjør et viktig arbeid for å fremme fred, menneskerettigheter og demokrati."
+      about_paragraph_center_title: "Walk of Peace"
+      about_paragraph_center_body: "For noen år siden ble idéen om å lage en installasjon inspirert av Walk of Fame for å ære vinnerne av Studentenes fredspris født. På denne måten skulle det sørges for at fredsprisvinnerne ble husket og æret i fremtiden. En designkonkurranse ble holdt i regi av ISFiT, og vinneren ble Åshild Herdlevær. Februar 2011 ble Walk of Peace avdekket i Jomfrugata, midt i sentrum av Trondheim."
+
+      about_paragraph_right_title: "Majid Tavakoli"
+      about_paragraph_right_body: "Vinneren av Studentenes fredspris 2013 tildeles Majid Tavakoli. Han er en iransk student, som for tiden soner en ni år lang fengselsstraff for sin kritikk av det iranske regimet og sin kamp for demokratisering og menneskerettigheter gjennom taler og publikasjoner."
     new:
       title: Ny artikkel
     show:

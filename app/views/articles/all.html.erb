@@ -10,6 +10,17 @@
 <%= content_for :title do %>
   <% t('all_page_title') %>
 <% end %>
+<!--start: Wrapper-->
+<div id="wrapper">
+
+  <!--start: Container -->
+  <div class="container">
+
+    <hr>
+
+    <!-- start: Row -->
+    <div class="row">
+
 
 <% @articles.each do |article| %>
 
@@ -33,3 +44,6 @@
   <%= will_paginate @articles, :renderer => BootstrapPagination::Rails, :container => false %>
 </div>
 </nav>
+</div>
+</div>
+</div>

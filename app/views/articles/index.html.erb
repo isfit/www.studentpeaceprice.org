@@ -1,61 +1,101 @@
 <%= content_for :meta do %>
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="http://www.studentpeaceprize.org/assets/logo-fredspris.png">
-    <meta property="og:url" content="http://www.studentpeaceprize.org/">
-    <meta property="og:title" content="The Student Peace Prize">
-    <meta property="og:site_name" content="Student Peace Prize"/>
-    <meta property="fb:app_id" content="132392463483362"/>
-    <meta property="og:description" content="The Student Peace Prize is given out every other year on behalf of all students in Norway.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="http://www.studentpeaceprize.org/assets/logo-fredspris.png">
+  <meta property="og:url" content="http://www.studentpeaceprize.org/">
+  <meta property="og:title" content="The Student Peace Prize">
+  <meta property="og:site_name" content="Student Peace Prize"/>
+  <meta property="fb:app_id" content="132392463483362"/>
+  <meta property="og:description" content="The Student Peace Prize is given out every other year on behalf of all students in Norway.">
 <% end %>
-<%= content_for :main_header do %>
-    <% if I18n.locale.to_s == "nb" %>
-        <div id="main-header" class="container hero-unit">
-            <div class="span4">
-                <h1><%= t('stream') %></h1>
- 
-                <p><%= t('video_text') %></p>
-                <%= link_to "Stem!", article_path(25 ,tab: "laureates"), class: "btn btn-primary btn-large" %>
 
-            </div>
-            <div class="span7">
-              <a href="<%= page_path(38, tab:"home")%>"><img src="http://i.imgur.com/BSngF.png" alt="hverdagshelt"></a>
-            </div>
-        </div>
+<!-- start: Slider -->
+<div class="slider-wrapper">
+
+  <div id="da-slider" class="da-slider">
+
+    <% @articles.each do |article| %>
+      <%= render article %>
     <% end %>
-<% end %>
-<div class="carousel" id="featured-news">
-    <div class="carousel-inner">
-        <% @articles.each do |article| %>
-            <% first = article == @articles.first %>
-            <%= render article, first: first %>
-        <% end %>
-    </div>
-    <a class="carousel-control left" href="#featured-news" data-slide="prev">&lsaquo;</a>
-    <a class="carousel-control right" href="#featured-news" data-slide="next">&rsaquo;</a>
+
+    <nav class="da-arrows">
+    <span class="da-arrows-prev"></span>
+    <span class="da-arrows-next"></span>
+    </nav>
+  </div>
+
 </div>
-<div class="articles row">
-    <div class="span4">
-        <h1><%= link_to t('.about_prize_title'), page_path(16, tab: "about") %></h1>
+<!-- end: Slider -->
 
-        <p><%= t('.about_prize_paragraph') %></p>
+<!--start: Wrapper-->
+<div id="wrapper">
+
+  <!--start: Container -->
+  <div class="container">
+  <% unless use_english? %>
+    <hr />
+    <div class="hero-unit">
+        <h2 class="span8"><%= t('stream') %></h2>
+
+        <%= link_to "Nominer din hverdagshelt!", article_path(25 ,tab: "home"), class: "btn btn-primary btn-large" %>
+
     </div>
-    <div class="span4">
-        <h1><%= link_to t('.nominate_title'), article_path(7, tab: "about") %></h1>
+  <% end %>
+    <hr>
 
-        <p><%= t('.nominate_paragraph') %></p>
+    <!-- start: Row -->
+    <div class="row">
 
+      <!-- start: Icon Boxes -->
+      <div class="icons-box-vert-container">
+
+        <!-- start: Icon Box Start -->
+        <div class="span4">
+          <div class="icons-box-vert">
+            <i class="ico-cup ico-white circle-color-full"></i>
+            <div class="icons-box-vert-info">
+              <h3><%= link_to t('.about_paragraph_left_title'), page_path(16, tab: "about") %></h3>
+              <p><%= t('.about_paragraph_left_body') %></p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <!-- end: Icon Box-->
+
+        <!-- start: Icon Box Start -->
+        <div class="span4">
+          <div class="icons-box-vert">
+            <i class="ico-road ico-white circle-color-full"></i>
+            <div class="icons-box-vert-info">
+              <h3><%= link_to t('.about_paragraph_center_title'), page_path(20, tab: "about") %></h3>
+              <p><%= t('.about_paragraph_center_body') %></p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <!-- end: Icon Box -->
+
+        <!-- start: Icon Box Start -->
+        <div class="span4">
+          <div class="icons-box-vert">
+            <i class="ico-leaf  ico-white circle-color-full"></i>
+            <div class="icons-box-vert-info">
+              <h3><%= link_to t('.about_paragraph_right_title'), page_path(37, tab: "about") %></h3>
+              <p><%= t('.about_paragraph_right_body') %></p>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <!-- end: Icon Box -->
+
+      </div>
+      <!-- end: Icon Boxes -->
+      <div class="clear"></div>
     </div>
+    <!-- end: Row -->
+    <hr>
+  </div>
+  <!--end: Container-->
+
 </div>
-
-<div class="pages row">
-    <div class="span8">
-        <hr>
-        <% page = Page.find(20) %>
-        <h1><%= link_to use_english? ? page.title_en : page.title_no, page_path(page) %></h1>
-
-        <p><em><%= use_english? ? page.ingress_en : page.ingress_no %></em></p>
-
-        <p><%= raw format use_english? ? page.body_en : page.body_no %></p>
-    </div>
-</div>
+<!-- end: Wrapper  -->	
 

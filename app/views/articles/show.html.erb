@@ -11,31 +11,71 @@
 <%= content_for :title do %>
   <%= use_english? ? @article.title_en : @article.title_no + " -" %>
 <% end %>
+<!-- start: Page Title -->
+<div id="page-title">
 
-<div id="article-media">
-  <%if @article.youtube_link? %>
-    <%= youtube_movie @article.youtube_link, :show_youtube %>
-  <%else%>
-    <%= image_tag @article.spp_article_image.url(:front_large) %>
-  <%end%>
-</div>
+  <div id="page-title-inner">
 
-<div id="article-header">
-  <div class="fb-like pull-right" data-href="<%= request.url %>" data-send="false" data-layout="box_count" data-width="45" data-show-faces="false"></div>
-  <h1><%= use_english? ? @article.title_en : @article.title_no %></h1>
-  <p><%= use_english? ? @article.ingress_en : @article.ingress_no %></p>
+    <!-- start: Container -->
+    <div class="container">
+
+      <h2><%= use_english? ? @article.title_en : @article.title_no %></h2>
+
+    </div>
+    <!-- end: Container  -->
+
+  </div>	
+
 </div>
-<div id="article-metadata">
-  <span class="byline">
-    <em><%= t('.text') %>:</em> <%= @article.byline %>
-    <em><%= t('.photo') %>:</em> <%= @article.image_text %>
-    <em><%= t('.date') %>:</em> <%= @article.created_at.strftime("%F") %>
-  </span>
+<!-- end: Page Title -->
+
+<!--start: Wrapper-->
+<div id="wrapper">
+
+  <!--start: Container -->
+  <div class="container">
+
+    <!--start: Row -->
+    <div class="row">
+
+      <div class="span9">
+
+        <!-- start: Post -->
+        <div class="post post-page">
+          <div class="post-img picture">
+            <%if @article.youtube_link? %>
+              <%= youtube_movie @article.youtube_link, :show_youtube %>
+            <%else%>
+              <%= image_tag @article.spp_article_image.url(:front_large) %>
+            <%end%>
+          </div>
+          <div class="post-content">
+            <div class="post-description">
+              <%=raw format(use_english? ? @article.body_en : @article.body_no )%>
+            </div>
+
+            <div class="post-meta">
+              <i class="mini-ico-calendar"></i><em><%= t('.date') %>:</em> <%= @article.created_at.strftime("%F") %>
+              <i class="mini-ico-user"></i><em><%= t('.text') %>:</em> <%= @article.byline %>
+              <i class="mini-ico-image"></i><em><%= t('.photo') %>:</em> <%= @article.image_text %>
+            </div> </div>
+          <%if @article.got_comments %>
+            <div class="fb-comments" data-href="<%=request.url %>" data-num-posts="5" data-width="620"></div>
+          <%end%>
+          <%= link_to "Til alle artikler", all_articles_path, class: "btn btn-primary" %>
+        </div>
+        <!-- end: Post -->
+      </div>
+      <!-- end: span9 -->
+      <div class="span3">
+        <blockquote><%= use_english? ? @article.ingress_en : @article.ingress_no %></blockquote>
+        <div class="fb-like pull-right" data-href="<%= request.url %>" data-send="false" data-layout="box_count" data-width="45" data-show-faces="false"></div>
+      </div>
+
+    </div>
+    <!-- end: row -->      
+  </div>
+  <!--end: Container-->
+
 </div>
-<div id="article-body">
-<%=raw format(use_english? ? @article.body_en : @article.body_no )%>
-</div>
-<%if @article.got_comments %>
-  <div class="fb-comments" data-href="<%=request.url %>" data-num-posts="5" data-width="620"></div>
-<%end%>
-<%= link_to "Til alle artikler", all_articles_path, class: "btn btn-primary" %>
+<!-- end: Wrapper  -->		

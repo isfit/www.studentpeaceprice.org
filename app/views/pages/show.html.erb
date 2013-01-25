@@ -14,25 +14,70 @@
   <%= use_english? ? @page.title_en : @page.title_no %>
 <% end %>
 
-  <%if @picture%>
-    <div id="article-media">
-      <%= image_tag @picture_path %>
+
+<!-- start: Page Title -->
+<div id="page-title">
+
+  <div id="page-title-inner">
+
+    <!-- start: Container -->
+    <div class="container">
+
+      <h2><%= use_english? ? @page.title_en : @page.title_no %></h2>
+
     </div>
-  <% end %>
-  <div id="article-header">
-    <div class="fb-like pull-right" data-href="<%= request.url %>" data-send="false" data-layout="box_count" data-width="45" data-show-faces="false"></div>
-    <h1><%= use_english? ? @page.title_en : @page.title_no %></h1>
-    <p><%= raw format use_english? ? @page.ingress_en : @page.ingress_no %></p>
-  </div>
-    <div id="article-metadata">
-  <span class="byline">
-    <% if @picture %>
-      <em><%= t('.photo') %>:</em> <%= @page.image_text %>
-    <% end %>
-    <em><%= t('.created') %>:</em> <%= @page.created_at.strftime("%F") %>
-    <em><%= t('.updated') %>:</em> <%= @page.updated_at.strftime("%F") %>
-  </span>
+    <!-- end: Container  -->
+
+  </div>	
+
 </div>
-<div id="article-body">
-    <%=raw format(use_english? ? @page.body_en : @page.body_no)%>
+<!-- end: Page Title -->
+
+<!--start: Wrapper-->
+<div id="wrapper">
+
+  <!--start: Container -->
+  <div class="container">
+
+    <!--start: Row -->
+    <div class="row">
+
+      <div class="span9">
+
+        <!-- start: Post -->
+        <div class="post post-page">
+          <%if @picture%>
+            <div class="post-img picture">
+              <%= image_tag @picture_path %>
+            </div>
+          <% end %>
+
+          <div class="post-content">
+            <div class="post-description">
+              <%=raw format(use_english? ? @page.body_en : @page.body_no)%>
+            </div>
+
+            <div class="post-meta">
+              <i class="mini-ico-calendar"></i><em><%= t('.updated') %>:</em> <%= @page.updated_at.strftime("%F") %>
+              <% if @picture %>
+                <i class="mini-ico-user"></i><em><%= t('.photo') %>:</em> <%= @page.image_text %>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+        <!-- end: Post -->
+      </div>
+      <!-- end: span9 -->
+      <div class="span3">
+        <blockquote><%= raw format use_english? ? @page.ingress_en : @page.ingress_no %></blockquote>
+        <div class="fb-like pull-right" data-href="<%= request.url %>" data-send="false" data-layout="box_count" data-width="45" data-show-faces="false"></div>
+      </div>
+
+    </div>
+    <!-- end: row -->      
   </div>
+  <!--end: Container-->
+
+</div>
+<!-- end: Wrapper  -->		
