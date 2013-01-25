@@ -49,7 +49,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="index.html"><%= image_tag "logo-fredspris.png" %> The <span>Student Peace Prize</span>.</a>
+          <%= link_to(root_path, :class => "brand") do %>
+            <%= image_tag "logo-fredspris.png" %> The <span>Student Peace Prize</span>
+          <% end %>
           <div class="nav-collapse collapse">
             <ul class="nav">           
               <% cache do %>
@@ -83,7 +85,7 @@
           <!-- start: Footer Menu Logo -->
           <div class="span4">
             <div id="footer-menu-logo">
-              <a class="brand" href="index.html"><%= image_tag "logo-fredspris.png" %> The <span>Student Peace Prize</span>.</a>
+              <a class="brand" href="index.html"><%= image_tag "logo-fredspris.png" %> The <span>Student Peace Prize</span></a>
             </div>
           </div>
           <!-- end: Footer Menu Logo -->
@@ -94,15 +96,19 @@
             <div id="footer-menu-links">
 
               <ul id="footer-nav">
-              <li><a href="#">Hjem</a></li>
-              <li><a href="about.html">Om prisen</a></li>
-              <li><a href="about.html">Vinnerne</a></li>
-              <li><a href="about.html">Komitéene</a></li>
-              <li><a href="about.html">Presse</a></li>
-              <li><a href="about.html">Kontakt</a></li>
-
+                <li><%= link_to t('menu_home'), root_path %></li>
+                <li><%= link_to t('menu_articles'), all_articles_path %></li>
+                <li><%= link_to t('menu_about'), page_path(16, tab:"home")%></li>
+                <li><%= link_to t('menu_laureates'), page_path(37, tab:"home")%></li>
+                <li><%= link_to t('menu_committe'), page_path(36, tab:"home")%></li>
+                <li><%= link_to t('menu_press'), page_path(32, tab:"home")%></li>
+                <li><%= link_to t('menu_contact'), page_path(25, tab:"home")%></li>
+                <% if use_english? %>
+                  <li><%= link_to "Norsk Utgave", "http://www.studentpeaceprize.org/nb/" %></li>
+                <% else %>
+                  <li><%= link_to "English Version", "http://www.studentpeaceprize.org/en/" %></li>
+                <% end %>
               </ul>
-
             </div>
 
           </div>
@@ -139,10 +145,8 @@
           <!-- start: About -->
           <div class="span2">
 
-            <h3>About Us</h3>
-            <p>
-            I mer enn et tiår har Studentenes fredspris jobbet for å støtte studenter over hele verden som gjør et viktig arbeid for å fremme fred, menneskerettigheter og demokrati.
-            </p>
+            <h3><%= t('about_us_title') %></h3>
+            <p><%= t('about_us_body') %></p>
 
           </div>
           <!-- end: About -->
@@ -165,17 +169,17 @@
           <div class="span3">
 
             <!-- start: Follow Us -->
-            <h3>Follow Us!</h3>
+            <h3><%= t('follow') %></h3>
             <ul class="social-grid">
               <li>
               <div class="social-item">				
                 <div class="social-info-wrap">
                   <div class="social-info">
                     <div class="social-info-front social-twitter">
-                      <a href="http://twitter.com"></a>
+                      <a href="https://twitter.com/StudPeacePrize"></a>
                     </div>
                     <div class="social-info-back social-twitter-hover">
-                      <a href="http://twitter.com"></a>
+                      <a href="https://twitter.com/StudPeacePrize"></a>
                     </div>	
                   </div>
                 </div>
@@ -186,10 +190,10 @@
                 <div class="social-info-wrap">
                   <div class="social-info">
                     <div class="social-info-front social-facebook">
-                      <a href="http://facebook.com"></a>
+                      <a href="https://www.facebook.com/studentpeaceprize"></a>
                     </div>
                     <div class="social-info-back social-facebook-hover">
-                      <a href="http://facebook.com"></a>
+                      <a href="https://www.facebook.com/studentpeaceprize"></a>
                     </div>
                   </div>
                 </div>
@@ -205,6 +209,7 @@
             <%= link_to image_tag("saih-logo.gif", :alt => 'SAIH'), "http://www.saih.no", :target => "_blank" %>
             <%= link_to image_tag("logoNSO.jpg", :alt => 'nso'), "http://www.student.no", :target => "_blank" %>
           </div>
+
           <!-- end: Partners -->
         </div>
         <!-- end: Row -->	

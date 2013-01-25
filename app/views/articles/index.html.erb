@@ -58,10 +58,10 @@
         <!-- start: Icon Box Start -->
         <div class="span4">
           <div class="icons-box-vert">
-            <i class="ico-ok ico-white circle-color-full"></i>
+            <i class="ico-cup ico-white circle-color-full"></i>
             <div class="icons-box-vert-info">
-              <h3><%= link_to t('.about_prize_title'), page_path(16, tab: "about") %></h3>
-              <p><%= t('.about_prize_paragraph') %></p>
+              <h3><%= link_to t('.about_paragraph_left_title'), page_path(16, tab: "about") %></h3>
+              <p><%= t('.about_paragraph_left_body') %></p>
             </div>
             <div class="clear"></div>
           </div>
@@ -71,11 +71,10 @@
         <!-- start: Icon Box Start -->
         <div class="span4">
           <div class="icons-box-vert">
-            <i class="ico-ipad ico-white circle-color-full"></i>
+            <i class="ico-road ico-white circle-color-full"></i>
             <div class="icons-box-vert-info">
-              <h3><%= link_to t('.nominate_title'), article_path(7, tab: "about") %></h3>
-              <p><%= t('.nominate_paragraph_one') %></p>
-              <p><%= raw t('.nominate_paragraph_two') %> <%= mail_to "nominations@studentpeaceprize.org" %></p>
+              <h3><%= link_to t('.about_paragraph_center_title'), page_path(20, tab: "about") %></h3>
+              <p><%= t('.about_paragraph_center_body') %></p>
             </div>
             <div class="clear"></div>
           </div>
@@ -85,10 +84,10 @@
         <!-- start: Icon Box Start -->
         <div class="span4">
           <div class="icons-box-vert">
-            <i class="ico-cup  ico-white circle-color-full"></i>
+            <i class="ico-leaf  ico-white circle-color-full"></i>
             <div class="icons-box-vert-info">
-              <h3>Winner 2013</h3>
-              <p>Majid Tavakoli vant årets fredspris</p>
+              <h3><%= link_to t('.about_paragraph_right_title'), page_path(37, tab: "about") %></h3>
+              <p><%= t('.about_paragraph_right_body') %></p>
             </div>
             <div class="clear"></div>
           </div>
@@ -100,68 +99,6 @@
       <div class="clear"></div>
     </div>
     <!-- end: Row -->
-    <!-- start: Row -->
-    <div class="row">
-
-      <div class="span9">
-        <% page = Page.find(20) %>
-        <div class="title"><h3>Walk of Peace</h3></div>
-        <!-- start: Post -->
-        <div class="post">
-          <div class="post-content">
-            <div class="post-description">
-              <p><%= raw format use_english? ? page.body_en : page.body_no %></p>
-            </div>
-          </div>
-        </div>
-        <!-- end: Post -->
-      </div>
-      <div class="span3">
-        <!-- start: Testimonials-->
-
-        <div class="testimonial-container">
-
-          <div class="title"><h3>Twitter</h3></div>
-
-          <div class="testimonials-carousel" data-autorotate="3000">
-
-            <ul class="carousel">
-
-              <li class="testimonial">
-              <div class="testimonials">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
-              <div class="testimonials-bg"></div>
-              <div class="testimonials-author">Lucas Luck, <span>@lucas</span></div>
-              </li>
-
-              <li class="testimonial">
-              <div class="testimonials">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </div>
-              <div class="testimonials-bg"></div>
-              <div class="testimonials-author">Lucas Luck, <span>CTO</span></div>
-              </li>
-
-              <li class="testimonial">
-              <div class="testimonials">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
-              <div class="testimonials-bg"></div>
-              <div class="testimonials-author">Lucas Luck, <span>COO</span></div>
-              </li>
-
-              <li class="testimonial">
-              <div class="testimonials">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
-              <div class="testimonials-bg"></div>
-              <div class="testimonials-author">Lucas Luck, <span>CMO</span></div>
-              </li>
-
-            </ul>
-
-          </div>
-
-        </div>
-
-        <!-- end: Testimonials-->
-
-      </div>
-      <div class="clear"></div>
-    </div>
     <hr>
   </div>
   <!--end: Container-->

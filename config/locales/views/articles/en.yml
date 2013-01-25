@@ -11,13 +11,12 @@ en:
     next_label: "Next"
   articles:
     index:
-      about_prize_title: "About the Prize"
-      about_prize_paragraph: "For more than a decade the Student Peace Prize has been a way to support students all over the world who are doing important work to promote peace and human rights. The Prize originates from the International Student Festival in Trondheim (ISFiT) and was first awarded in 1999. The Prize is awarded on behalf of all students in Norway."
-      nominate_title: "Nominate"
-      nominate_paragraph_one: "The Student Peace Prize is awarded every other year, and the process of selecting the winner for 2013 is already in motion."
-      nominate_paragraph_two: "The Nomination Deadline is set to <b>1st of May, 2012</b>. Please call for nominations to"
-      global_truce_title: "Global Truce"
-      global_truce_paragraph: "The Student Peace Prize is proud to announce a collaboration with the internationally renowned organization Peace One Day on creating the world’s largest campaign for peace. The launch of this global campaign will be in London on <em>Monday 27th of February at 3 PM GMT</em>, and will be streamed live through Google+ via Google Hangout."
+      about_paragraph_left_title: "About the Prize"
+      about_paragraph_left_body: "For more than a decade the Student Peace Prize has been a way to support students all over the world who are doing important work to promote peace and human rights. The Prize originates from the International Student Festival in Trondheim (ISFiT) and was first awarded in 1999. The Prize is awarded on behalf of all students in Norway."
+      about_paragraph_center_title: "Walk of Peace"
+      about_paragraph_center_body: "A few years ago the idea of creating a Walk of Fame inspired installation to honor the SPP laureates was born. This way we can ensure that the peace prize winners will be remembered and honored in the future. A design competition was initiated by ISFiT, and won by Åshild Herdlevær. February 2011 Walk of Peace was unveiled in Jomfrugata, in the middle of Trondheim’s city centre."
+      about_paragraph_right_title: "Majid Tavakoli"
+      about_paragraph_right_body: "The Student Peace Prize 2013 is awarded Majid Tavakoli. He is an Iranian student, who is serving a nine-year-long imprisonment because of his criticism of the Iranian regime and his fight for democracy and human rights through speeches and publications."
     new:
       title: "New article"
     show:
