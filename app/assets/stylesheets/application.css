@@ -2,7 +2,13 @@
  *= require bootstrap.css
  *= require bootstrap-responsive.css
  *= require style.css
+ *= require fancybox.css
  *= require parallax-slider.css
+ *= require hover.css
+ *= require icons-color.css
+ *= require icons.css
+ *= require social-icons.css
+ *= require styleie9.css
  *= require_self
  */
 
