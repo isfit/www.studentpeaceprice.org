@@ -12,14 +12,6 @@
  *= require_self
  */
 
-.post {
-  font-size: 1.2em;
-}
-.post h4 {
-  font-size: 1.4em;
-  font-weight: bold;
-}
-
 #footer-menu-logo .brand img{
   margin-top: -15px !important;
 }
@@ -28,3 +20,8 @@ a {
   color: #D56B1D;}
 a:hover {
   color: #D56B1D;}
+
+.navbar li.active > a > [class^="icon-"],
+.navbar li.active > a > [class*=" icon-"] {
+  background-image: url("../img/glyphicons-halflings.png") !important;
+}

@@ -4,23 +4,23 @@
 %>
 
 <% if count > 1 %>
-<li class="dropdown">
+  <li class="dropdown <%= append_active_class_if_active(tab)%>">
 <%= tab_dropdown_link_to(tab) %>
   <ul class="dropdown-menu">
     <% sublinks.each do |sublink| %>
       <li>
-      <%= sublink_to(sublink) %> 
+      <%= sublink_to(tab, sublink) %> 
       </li>
     <% end %>
   </ul>
   </li>
 </li>
 <% elsif count == 1 %>
-  <li>
+  <li class=" <%= append_active_class_if_active(tab)%>">
   <%= tab_link_to(tab, sublinks.first) %>
   </li>
 <% else %>
-  <li>
+  <li class=" <%= append_active_class_if_active(tab)%>">
   <%= raw link_to use_english? ? tab.name_en.html_safe : tab.name_no.html_safe, root_path %>
   </li>
 <% end %>

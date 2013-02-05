@@ -27,14 +27,18 @@ module ApplicationHelper
   end
 
   def tab_link_to(tab, sublink)
-    raw link_to(use_english? ? tab.name_en.html_safe : tab.name_no.html_safe, page_path(sublink.page))
+    raw link_to(use_english? ? tab.name_en.html_safe : tab.name_no.html_safe, page_path(sublink.page, :tab => tab.tag))
   end
 
-  def sublink_to(sublink)
+  def sublink_to(tab, sublink)
     if sublink.external_url.blank?
-      raw link_to use_english? ? sublink.title_en : sublink.title_no, page_path(sublink.page)
+      raw link_to use_english? ? sublink.title_en : sublink.title_no, page_path(sublink.page, :tab => tab.tag)
     else
       raw link_to use_english? ? sublink.title_en : sublink.title_no, sublink.external_url, target: "_BLANK"
     end
+  end
+
+  def append_active_class_if_active(tab)
+      params[:tab] == tab.tag ? "active" : ""
   end
 end

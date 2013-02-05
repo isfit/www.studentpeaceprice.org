@@ -16,6 +16,15 @@ class ArticlesController < ApplicationController
   # GET /articles/1.xml
   def show
     @article = Article.find(params[:id])
+
+    @related = Article.visible.where(press_release: 0).sorted.limit(5)
+    @related.reject!{|x| x == @article }
+
+    if I18n.locale == :en
+      @related.reject!{|x| x.title_en.to_s.strip.length == 0 }
+    else
+      @related.reject!{|x| x.title_no.to_s.strip.length == 0 }
+    end
   end
 
   def all

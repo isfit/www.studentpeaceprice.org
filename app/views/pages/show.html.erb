@@ -42,7 +42,7 @@
     <!--start: Row -->
     <div class="row">
 
-      <div class="span9">
+      <div class="span6">
 
         <!-- start: Post -->
         <div class="post post-page">
@@ -53,6 +53,9 @@
           <% end %>
 
           <div class="post-content">
+            <div class="post-ingress">
+              <%= raw format use_english? ? @page.ingress_en : @page.ingress_no %>
+            </div>
             <div class="post-description">
               <%=raw format(use_english? ? @page.body_en : @page.body_no)%>
             </div>
@@ -69,11 +72,36 @@
         <!-- end: Post -->
       </div>
       <!-- end: span9 -->
-      <div class="span3">
-        <blockquote><%= raw format use_english? ? @page.ingress_en : @page.ingress_no %></blockquote>
-        <div class="fb-like pull-right" data-href="<%= request.url %>" data-send="false" data-layout="box_count" data-width="45" data-show-faces="false"></div>
+      <!-- span3 -->
+     <div class="span4 offset2">
+       <% cache do %>
+        <div class="title"><h3><%= t('related_articles') %></h3></div>
+        <% @related.each do |page| %>
+          <div class="portfolio-item nature people isotope-item" >
+            <div class="picture">
+              <%= link_to article_path(page) do %>
+                <%if page.youtube_link? %>
+                <%else%>
+                  <%= image_tag page.spp_article_image.url(:front_small) %>
+                <%end%>
+                <div class="image-overlay-link" style="opacity: 0; display: block; "></div>
+              <%end%>
+              <div class="item-description alt">
+                <h5><a href="project.html"><%= use_english? ? page.title_en : page.title_no %></a></h5>
+                <p>
+                  <%= raw format use_english? ? page.ingress_en : page.ingress_no %>
+                </p>
+              </div>
+              <div class="post-meta"><span><i class="mini-ico-calendar"></i><%= page.updated_at.strftime("%-d %B %Y") %></span></div>
+            </div>	
+          </div>
+      <% end %>
+      <ul class="links-list-alt">
+        <li><%= link_to t('menu_articles'), all_articles_path %></li>
+      </ul>
+    <% end %>
       </div>
-
+      <!-- end: span3 -->
     </div>
     <!-- end: row -->      
   </div>

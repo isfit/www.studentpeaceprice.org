@@ -18,53 +18,55 @@
 @import url("hover.css");				/* Hover CSS3 Effect */
 @import url("fancybox.css");			/* Fancybox */
 
-html { -webkit-font-smoothing: antialiased; }
-
 .clear {
 	clear:both;
 }
 
 body {
-	font-family: 'Droid Sans';
-	font-size: 12px;
+  font-family: 'Optima nova LT W02';  
+	font-size: 16px;
 	color: #666;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Droid Sans" !important;
-	font-weight: normal !important;
+  font-style: normal;
+  font-weight: 500;
+  font-family: apertura;
 	color: #666;
 	margin: 0;
 	padding: 0;
 }
 
 h1 {
-  font-size: 36px;
+  font-family: apertura-condensed
+  font-size: 48px;
   line-height: 40px;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 36px;
   line-height: 40px;
 }
 
 h3 {
-  font-size: 18px;
-  line-height: 32px;
-}
-
-h4 {
-  font-size: 13px;
+  font-size: 20px;
   line-height: 30px;
 }
 
+h4 {
+    font-style: normal;
+    font-size: 18px;
+    margin-bottom: 0px;
+    line-height: 27px;
+}
+
 h5 {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 26px;
 }
 
 h6 {
-  font-size: 11px;
+  font-size: 14px;
   line-height: 24px;
 }
 
@@ -285,7 +287,6 @@ header {
 
 #page-title h2 {
 	display: inline-block;
-	font-family: "Droid Sans" !important;
 	color: #fff;
 	padding: 10px 20px 5px 20px;
 	font-size: 30px;
@@ -606,6 +607,8 @@ html[xmlns] .slides {display: block;}
 
 .icons-box p {
 	float: left;
+  font-family: OptimanovaLTW02-Light;
+  
 }
 
 .icons-box i {
@@ -1553,13 +1556,23 @@ a.buy:hover {
 .post {
 	padding: 0 0 15px 0;
 	border-bottom: 1px solid #eee;
-	margin-bottom: 10px;	
+	margin-bottom: 10px;
 }
 
 .post.post-page {border-bottom: none; margin-bottom: 0;}
 
 .post-content {margin: 22px 0 0 0px;}
 
+.post-content p {
+  line-height: 25px;
+  margin-bottom: 25px;
+}
+.post-ingress, .post-ingress p {
+    font-family: apertura;
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 18px;
+}
 
 /* Icons
 =================================================================== */
@@ -1572,6 +1585,7 @@ a.buy:hover {
 
 /* Tags */
 .post-meta {
+  font-size: 12px;
 	background: #fff;
 	color: #666;
 	margin: 5px 0px;
@@ -1834,6 +1848,7 @@ li.current {
 
 #footer-menu-links ul,
 #footer-menu-links li {
+  font-size: 12px;
 	list-style: disc;
 	color:#999999;
 	padding:0;
@@ -1857,11 +1872,10 @@ li.current {
 }
 
 #footer-menu-links ul li a { 
+  font-size: 12px;
 	display: inline-block;
 	color: #666;
 	text-decoration: none;
-	font-size: 12px;
-	font-family: 'Droid Sans';
 	text-transform: lowercase;
 	padding: 10px 15px 10px 0px;
 	margin: 0px 10px 0px 0px;
@@ -1932,12 +1946,18 @@ li.current {
 .no-margin {margin-top: 0;}
 
 #footer h3 {
+  font-size: 18px;
+  font-weight:normal;
 	padding: 2px 0px !important;
 	margin-bottom: 10px;
 	color: #666;
 	border-bottom: 5px double #f6f6f6;
 }
 
+#footer p {
+    font-family: OptimanovaLTW02-Light;
+    font-size: 12px;
+  }
 /* Newsletter Form
 ====================================================================== */
 
