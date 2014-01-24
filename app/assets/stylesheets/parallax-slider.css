@@ -58,12 +58,10 @@
 	font-size: 52px;
 	width: 65%;
 	top: 60px;
-	white-space: nowrap;
 	z-index: 10;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
   font-family: "apertura-condensed",sans-serif;
 	font-weight: 500;
-	background: rgba(0,0,0,.7);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3000000', endColorstr='#b3000000',GradientType=0 ); /* IE6-8 */
 	padding: 28px 20px;
 	margin-left: -20px;
@@ -103,7 +101,7 @@
 	padding: 2px 20px 0px;
 	font-size: 18px;
 	line-height: 30px;
-	width: 80px;
+	width: 120px;
 	text-align: center;
 	background: rgba(255,255,255,0.2);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33ffffff', endColorstr='#33ffffff',GradientType=0 ); /* IE6-8 */
