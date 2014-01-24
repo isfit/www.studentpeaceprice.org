@@ -31,10 +31,12 @@ module ApplicationHelper
   end
 
   def sublink_to(tab, sublink)
-    if sublink.external_url.blank?
+    if sublink.no_urls?
       raw link_to use_english? ? sublink.title_en : sublink.title_no, page_path(sublink.page, :tab => tab.tag)
-    else
+    elsif sublink.url.blank?
       raw link_to use_english? ? sublink.title_en : sublink.title_no, sublink.external_url, target: "_BLANK"
+    elsif sublink.external_url.blank?
+      raw link_to use_english? ? sublink.title_en : sublink.title_no, sublink.url
     end
   end
 
