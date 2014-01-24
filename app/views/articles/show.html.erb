@@ -1,5 +1,5 @@
 <%= content_for :meta do %>
-  <meta property="og:title" content="<%=@article.title_en %>."/>
+  <meta property="og:title" content="<%=@article.title_en.gsub("<br/>", " ") %>."/>
   <meta property="og:type" content="non_profit"/>
   <meta property="og:image" content="http://www.studentpeaceprize.org/<%= @article.spp_article_image.url(:front_small) %>"/>
   <meta property="og:url" content="<%=(request.url).match(/([A-Za-z0-9:._\/]+)/)[1]%>"/>          
@@ -9,7 +9,7 @@
 <%end%>
 
 <%= content_for :title do %>
-  <%= use_english? ? @article.title_en : @article.title_no + " -" %>
+  <%= use_english? ? @article.title_en.gsub("<br/>", " ") : @article.title_no.gsub("<br/>", " ") + " -" %>
 <% end %>
 <!-- start: Page Title -->
 <div id="page-title">
@@ -19,7 +19,7 @@
     <!-- start: Container -->
     <div class="container">
 
-      <h2><%= use_english? ? @article.title_en : @article.title_no %></h2>
+      <h2><%= use_english? ? @article.title_en.gsub("<br/>", " ") : @article.title_no.gsub("<br/>", " ") %></h2>
 
     </div>
     <!-- end: Container  -->
