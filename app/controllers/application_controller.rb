@@ -15,8 +15,25 @@ class ApplicationController < ActionController::Base
     if (params[:locale].to_s == "no")
       params[:locale] = :nb
     end
-    I18n.locale = params[:locale] || I18n.default_locale
+    I18n.locale = params[:locale] || find_locale
     logger.debug I18n.locale
   end
 
+  def find_locale
+    country_code = get_country_code_by_id(request.remote_ip)
+    if country_code = "no"
+      :nb
+    else
+      I18n.default_locale
+    end
+  end
+
+  def get_country_code_by_id(ip)
+    begin
+      output= IO.popen("whois #{ip} | grep country:")
+      output.gets[8..-1].strip.downcase
+    rescue
+      "en"
+    end
+  end
 end
