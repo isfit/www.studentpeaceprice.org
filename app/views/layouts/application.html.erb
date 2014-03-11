@@ -60,7 +60,7 @@
                 <% params[:tab] = "home" %>
               <% end %>
               <% cache("#{I18n.locale.to_s}/#{params[:tab]}") do %>
-                <% Tab.all.each do |tab| %>
+                <% Tab.where(deleted: false).each do |tab| %>
                   <%= render 'layouts/tab', tab: tab %>
                 <% end %>
               <% end %>
