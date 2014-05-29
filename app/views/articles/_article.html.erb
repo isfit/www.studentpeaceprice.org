@@ -1,7 +1,7 @@
 <div class="da-slide">
   <h2><%= use_english? ? article.title_en : article.title_no %></h2>
   <!--p><%= use_english? ? article.ingress_en : article.ingress_no %></p-->
-  <%= link_to use_english? ? "Nominate here" : "Nominer her", article_path(article), class: "da-link" %>
+  <%= link_to use_english? ? "Read more" : "Les mer", article_path(article), class: "da-link" %>
   <div class="da-img">
     <%= image_tag article.spp_article_image.url(:article) %>
   </div>
