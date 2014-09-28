@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.xml
   def index
-    @articles = Article.visible.where(press_release: 0).sorted.limit(1)
+    @articles = Article.visible.where(press_release: 0).sorted.limit(5)
     if I18n.locale == :en
       @articles.reject!{|x| x.title_en.to_s.strip.length == 0 }
     else
